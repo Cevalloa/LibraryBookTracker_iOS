@@ -22,11 +22,28 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
+    [self refresh];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)refresh {
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"http://prolific-interview.herokuapp.com/54be6ef246c2c2000866aa4d/books"];
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    request.HTTPMethod = @"GET";
+    
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSDictionary *dictionaryBookListData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            NSLog(@"The returned JSON data in NSDictionary form is %@", dictionaryBookListData);
+            NSLog(@"The meta data response is %@", response);
+        });
+    }];
+    
+    [task resume];
+    
 }
 
 #pragma mark - Table view data source
