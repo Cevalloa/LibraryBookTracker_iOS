@@ -14,6 +14,8 @@
 		CCE3E0D51A6EADC300D595F6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCE3E0D31A6EADC300D595F6 /* LaunchScreen.xib */; };
 		CCE3E0E11A6EADC600D595F6 /* Library_Book_TrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0E01A6EADC600D595F6 /* Library_Book_TrackerTests.m */; };
 		CCE3E0EC1A6EB06000D595F6 /* BookListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0EB1A6EB06000D595F6 /* BookListTableViewController.m */; };
+		CCE3E0EF1A6EB5CF00D595F6 /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0EE1A6EB5CF00D595F6 /* BookDetailViewController.m */; };
+		CCE3E0F21A6EB5F100D595F6 /* AddBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0F11A6EB5F100D595F6 /* AddBookViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		CCE3E0E01A6EADC600D595F6 /* Library_Book_TrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Library_Book_TrackerTests.m; sourceTree = "<group>"; };
 		CCE3E0EA1A6EB06000D595F6 /* BookListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookListTableViewController.h; path = ../BookListTableViewController.h; sourceTree = "<group>"; };
 		CCE3E0EB1A6EB06000D595F6 /* BookListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookListTableViewController.m; path = ../BookListTableViewController.m; sourceTree = "<group>"; };
+		CCE3E0ED1A6EB5CF00D595F6 /* BookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailViewController.h; sourceTree = "<group>"; };
+		CCE3E0EE1A6EB5CF00D595F6 /* BookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
+		CCE3E0F01A6EB5F100D595F6 /* AddBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBookViewController.h; sourceTree = "<group>"; };
+		CCE3E0F11A6EB5F100D595F6 /* AddBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBookViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,10 @@
 				CCE3E0C91A6EADC200D595F6 /* AppDelegate.m */,
 				CCE3E0EA1A6EB06000D595F6 /* BookListTableViewController.h */,
 				CCE3E0EB1A6EB06000D595F6 /* BookListTableViewController.m */,
+				CCE3E0ED1A6EB5CF00D595F6 /* BookDetailViewController.h */,
+				CCE3E0EE1A6EB5CF00D595F6 /* BookDetailViewController.m */,
+				CCE3E0F01A6EB5F100D595F6 /* AddBookViewController.h */,
+				CCE3E0F11A6EB5F100D595F6 /* AddBookViewController.m */,
 				CCE3E0CE1A6EADC300D595F6 /* Main.storyboard */,
 				CCE3E0D11A6EADC300D595F6 /* Images.xcassets */,
 				CCE3E0D31A6EADC300D595F6 /* LaunchScreen.xib */,
@@ -221,6 +231,8 @@
 			files = (
 				CCE3E0EC1A6EB06000D595F6 /* BookListTableViewController.m in Sources */,
 				CCE3E0CA1A6EADC200D595F6 /* AppDelegate.m in Sources */,
+				CCE3E0EF1A6EB5CF00D595F6 /* BookDetailViewController.m in Sources */,
+				CCE3E0F21A6EB5F100D595F6 /* AddBookViewController.m in Sources */,
 				CCE3E0C71A6EADC200D595F6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

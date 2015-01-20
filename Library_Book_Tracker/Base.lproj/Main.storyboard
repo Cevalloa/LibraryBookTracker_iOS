@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8yq-cY-jOL">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Books-->
         <scene sceneID="sU2-XE-Tf7">
             <objects>
-                <tableViewController id="00p-5u-X8U" sceneMemberID="viewController">
+                <tableViewController id="00p-5u-X8U" customClass="BookListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Uke-y3-Pdh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,7 +26,7 @@
                             <outlet property="delegate" destination="00p-5u-X8U" id="hob-vt-FWk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="cAR-sS-it8">
+                    <navigationItem key="navigationItem" title="Books" id="cAR-sS-it8">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="baK-0A-VJF"/>
                     </navigationItem>
                     <connections>
@@ -37,10 +38,10 @@
             </objects>
             <point key="canvasLocation" x="265" y="355"/>
         </scene>
-        <!--View Controller-->
+        <!--Book Detail View Controller-->
         <scene sceneID="sgD-pp-aCg">
             <objects>
-                <viewController id="bPl-Kt-hOd" sceneMemberID="viewController">
+                <viewController id="bPl-Kt-hOd" customClass="BookDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Rg-Ry-gdr"/>
                         <viewControllerLayoutGuide type="bottom" id="IUg-Nd-4iG"/>
@@ -56,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="1029" y="355"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Book View Controller-->
         <scene sceneID="dKa-Y6-3Og">
             <objects>
-                <viewController id="lVd-ZD-6SS" sceneMemberID="viewController">
+                <viewController id="lVd-ZD-6SS" customClass="AddBookViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nBe-MS-KfB"/>
                         <viewControllerLayoutGuide type="bottom" id="qmU-xy-reX"/>
