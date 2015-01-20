@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  BookListTableViewController.h
 //  Library_Book_Tracker
 //
 //  Created by Alex Cevallos on 1/20/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface BookListTableViewController : UITableViewController
 
 @end
-

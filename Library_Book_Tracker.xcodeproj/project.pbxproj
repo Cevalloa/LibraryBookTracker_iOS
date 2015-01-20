@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		CCE3E0C71A6EADC200D595F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0C61A6EADC200D595F6 /* main.m */; };
 		CCE3E0CA1A6EADC200D595F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0C91A6EADC200D595F6 /* AppDelegate.m */; };
-		CCE3E0CD1A6EADC300D595F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0CC1A6EADC300D595F6 /* ViewController.m */; };
 		CCE3E0D01A6EADC300D595F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCE3E0CE1A6EADC300D595F6 /* Main.storyboard */; };
 		CCE3E0D21A6EADC300D595F6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCE3E0D11A6EADC300D595F6 /* Images.xcassets */; };
 		CCE3E0D51A6EADC300D595F6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCE3E0D31A6EADC300D595F6 /* LaunchScreen.xib */; };
 		CCE3E0E11A6EADC600D595F6 /* Library_Book_TrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0E01A6EADC600D595F6 /* Library_Book_TrackerTests.m */; };
+		CCE3E0EC1A6EB06000D595F6 /* BookListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0EB1A6EB06000D595F6 /* BookListTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +32,14 @@
 		CCE3E0C61A6EADC200D595F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CCE3E0C81A6EADC200D595F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CCE3E0C91A6EADC200D595F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CCE3E0CB1A6EADC300D595F6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CCE3E0CC1A6EADC300D595F6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CCE3E0CF1A6EADC300D595F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CCE3E0D11A6EADC300D595F6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CCE3E0D41A6EADC300D595F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CCE3E0DA1A6EADC500D595F6 /* Library_Book_TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Library_Book_TrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE3E0DF1A6EADC600D595F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCE3E0E01A6EADC600D595F6 /* Library_Book_TrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Library_Book_TrackerTests.m; sourceTree = "<group>"; };
+		CCE3E0EA1A6EB06000D595F6 /* BookListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookListTableViewController.h; path = ../BookListTableViewController.h; sourceTree = "<group>"; };
+		CCE3E0EB1A6EB06000D595F6 /* BookListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookListTableViewController.m; path = ../BookListTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +83,8 @@
 			children = (
 				CCE3E0C81A6EADC200D595F6 /* AppDelegate.h */,
 				CCE3E0C91A6EADC200D595F6 /* AppDelegate.m */,
-				CCE3E0CB1A6EADC300D595F6 /* ViewController.h */,
-				CCE3E0CC1A6EADC300D595F6 /* ViewController.m */,
+				CCE3E0EA1A6EB06000D595F6 /* BookListTableViewController.h */,
+				CCE3E0EB1A6EB06000D595F6 /* BookListTableViewController.m */,
 				CCE3E0CE1A6EADC300D595F6 /* Main.storyboard */,
 				CCE3E0D11A6EADC300D595F6 /* Images.xcassets */,
 				CCE3E0D31A6EADC300D595F6 /* LaunchScreen.xib */,
@@ -219,7 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCE3E0CD1A6EADC300D595F6 /* ViewController.m in Sources */,
+				CCE3E0EC1A6EB06000D595F6 /* BookListTableViewController.m in Sources */,
 				CCE3E0CA1A6EADC200D595F6 /* AppDelegate.m in Sources */,
 				CCE3E0C71A6EADC200D595F6 /* main.m in Sources */,
 			);
@@ -344,6 +344,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Library_Book_Tracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -354,6 +355,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Library_Book_Tracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
