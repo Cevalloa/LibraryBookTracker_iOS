@@ -95,7 +95,7 @@
 				CCE3E0C91A6EADC200D595F6 /* AppDelegate.m */,
 				CCE3E0F91A6EEACC00D595F6 /* Screen 1 - Lists Books */,
 				CCE3E0FA1A6EEAEB00D595F6 /* Screen 2 - Gives Book Details */,
-				CCE3E0FB1A6EEB0400D595F6 /* Screen 3 - Add New Book */,
+				CCE3E0FB1A6EEB0400D595F6 /* Screen 3 - Adds New Book */,
 				CCE3E0CE1A6EADC300D595F6 /* Main.storyboard */,
 				CCE3E0D11A6EADC300D595F6 /* Images.xcassets */,
 				CCE3E0D31A6EADC300D595F6 /* LaunchScreen.xib */,
@@ -148,13 +148,13 @@
 			name = "Screen 2 - Gives Book Details";
 			sourceTree = "<group>";
 		};
-		CCE3E0FB1A6EEB0400D595F6 /* Screen 3 - Add New Book */ = {
+		CCE3E0FB1A6EEB0400D595F6 /* Screen 3 - Adds New Book */ = {
 			isa = PBXGroup;
 			children = (
 				CCE3E0F01A6EB5F100D595F6 /* AddBookViewController.h */,
 				CCE3E0F11A6EB5F100D595F6 /* AddBookViewController.m */,
 			);
-			name = "Screen 3 - Add New Book";
+			name = "Screen 3 - Adds New Book";
 			sourceTree = "<group>";
 		};
 		CCE3E0FC1A6EEB3900D595F6 /* Categories */ = {
