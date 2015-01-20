@@ -7,8 +7,9 @@
 //
 
 #import "BookListTableViewController.h"
-
+#import "NSObject+StringConverter.h"
 @interface BookListTableViewController ()
+@property (nonatomic) NSArray *arrayOfBookList;
 
 @end
 
@@ -24,21 +25,28 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     
-    [self refresh];
+    [self connect];
 }
 
--(void)refresh {
+-(void)connect {
     NSURLSession *session = [NSURLSession sharedSession];
     NSString *urlString = [[NSString alloc] initWithFormat:@"http://prolific-interview.herokuapp.com/54be6ef246c2c2000866aa4d/books"];
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     request.HTTPMethod = @"GET";
     
+    //Retrieves books from Swag Library
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSDictionary *dictionaryBookListData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-            NSLog(@"The returned JSON data in NSDictionary form is %@", dictionaryBookListData);
+            self.arrayOfBookList = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            NSLog(@"The returned JSON data in NSDictionary form is %@", self.arrayOfBookList);
             NSLog(@"The meta data response is %@", response);
+            NSLog(@"total count %lu", (unsigned long)[self.arrayOfBookList count]);
+            
+            //Reminder you can't call UI elements on the back threads
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
         });
     }];
     
@@ -49,15 +57,35 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.arrayOfBookList count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+
+    //-Used to debug at what time this method receives the information. (Useful for debugging multithreading)
+    //NSLog(@"%@", self.arrayOfBookList[indexPath.row]);
+    //NSLog(@"Within cell for row the count is %lu", (unsigned long)[self.arrayOfBookList count]);
+    
+    NSString *stringTitleOfBook = self.arrayOfBookList[indexPath.row][@"title"];
+    
+    NSString *stringAuthorOfBook = self.arrayOfBookList[indexPath.row][@"author"];
+    
+    //methodConverToFormattedString is from a category. Method is used to format strings
+    cell.textLabel.attributedText = [self methodConvertToFormattedString:stringTitleOfBook sizeOfString:15.0f];
+    cell.detailTextLabel.attributedText = [self methodConvertToFormattedString:stringAuthorOfBook sizeOfString:12.0f];
+
+    return cell;
+    
+    
 }
 
 /*
