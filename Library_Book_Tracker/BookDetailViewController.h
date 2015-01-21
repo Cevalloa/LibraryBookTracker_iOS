@@ -12,12 +12,14 @@
 
 @property (nonatomic) NSDictionary *dictionaryBookInformation;
 
+#pragma mark IBOutlet Properties
 @property (weak, nonatomic) IBOutlet UILabel *labelBookTitle;
 @property (weak, nonatomic) IBOutlet UILabel *labelBookAuthor;
 @property (weak, nonatomic) IBOutlet UILabel *labelBookPublisher;
 @property (weak, nonatomic) IBOutlet UILabel *labelBookTags;
 @property (weak, nonatomic) IBOutlet UILabel *labelBookLatestCheckout;
 
+#pragma mark IBAction Methods
 - (IBAction)buttonBookCheckout:(id)sender;
 
 

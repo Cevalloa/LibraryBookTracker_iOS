@@ -94,12 +94,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Checkout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEZ-Kg-kZ8">
-                                <rect key="frame" x="36" y="272" width="152" height="45"/>
+                                <rect key="frame" x="36" y="272" width="528" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="152" id="RL4-ns-2Aw"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="152" id="RL4-ns-2Aw"/>
                                     <constraint firstAttribute="height" constant="45" id="XBh-Ju-Q74"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -130,6 +130,7 @@
                             <constraint firstItem="Cbf-Cb-V8o" firstAttribute="top" secondItem="l5v-4B-CPF" secondAttribute="bottom" constant="20" id="nYV-up-lgu"/>
                             <constraint firstItem="ZEZ-Kg-kZ8" firstAttribute="top" secondItem="Lyt-6A-Kak" secondAttribute="bottom" constant="20" id="o0f-uE-yoG"/>
                             <constraint firstItem="l5v-4B-CPF" firstAttribute="top" secondItem="fas-WW-ezK" secondAttribute="bottom" constant="20" id="sfl-AN-ozk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZEZ-Kg-kZ8" secondAttribute="trailing" constant="20" id="ymt-17-uHu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XDE-33-2xr">

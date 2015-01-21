@@ -17,6 +17,8 @@
 
 @implementation BookListTableViewController
 
+#pragma mark - View Controller Lifecycle Methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -30,23 +32,45 @@
     [self connect];
 }
 
+#pragma mark - API Connectivity Methods
+
 -(void)connect {
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSString *urlString = [[NSString alloc] initWithFormat:@"http://prolific-interview.herokuapp.com/54be6ef246c2c2000866aa4d/books"];
-    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    
+    //Change the URL string here to change throughout the app
+    NSString *urlString = [[NSString alloc] initWithFormat:@"http://prolific-interview.herokuapp.com/54be6ef246c2c2000866aa4d"];
+    
+    
+    //Set up universal URL for API Connection (if it does not match the stringUrl)
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if ([userDefaults stringForKey:@"stringUrlForApi"] != urlString) {
+        NSLog(@"urlForApi is empty");
+        [userDefaults setObject:urlString forKey:@"stringUrlForApi"];
+    }
+    
+    //Adds books to the end of the API String
+   // NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@/books",[userDefaults objectForKey:@"stringUrlForApi"]]];
+    
+    NSURL *url = [[NSURL alloc] initWithString:@"http://prolific-interview.herokuapp.com/54be6ef246c2c2000866aa4d/books"];
+    
+    NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     request.HTTPMethod = @"GET";
     
     //Retrieves books from Swag Library
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_sync(dispatch_get_main_queue(), ^{
             self.arrayOfBookList = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            
+    //Debugging To see what JSON Api feed returns
             NSLog(@"The returned JSON data in NSDictionary form is %@", self.arrayOfBookList);
             NSLog(@"The meta data response is %@", response);
             NSLog(@"total count %lu", (unsigned long)[self.arrayOfBookList count]);
             
+            
             //Reminder you can't call UI elements on the back threads
             dispatch_async(dispatch_get_main_queue(), ^{
+                
                 [self.tableView reloadData];
             });
         });
@@ -65,6 +89,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
+    NSLog(@"count works %ld", [self.arrayOfBookList count]);
     return [self.arrayOfBookList count];
 }
 
@@ -75,8 +100,17 @@
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    NSString *stringTitleOfBook = self.arrayOfBookList[indexPath.row][@"title"];
-    NSString *stringAuthorOfBook = self.arrayOfBookList[indexPath.row][@"author"];
+    id stringTitleOfBook = self.arrayOfBookList[indexPath.row][@"title"];
+    id stringAuthorOfBook = self.arrayOfBookList[indexPath.row][@"author"];
+    
+    //Reminder.. cellForRow throws NSNull exception if tableviewcell text is null
+    if([stringTitleOfBook isKindOfClass:[NSNull class]]){
+        stringTitleOfBook = @"-No Title";
+    }
+    
+    if([stringAuthorOfBook isKindOfClass:[NSNull class]]){
+        stringAuthorOfBook = @"-No Author-";
+    }
     
     //methodConverToFormattedString is from a category. Method is used to format strings
     cell.textLabel.attributedText = [self methodConvertToFormattedString:stringTitleOfBook sizeOfString:15.0f];
