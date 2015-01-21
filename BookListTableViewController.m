@@ -8,6 +8,8 @@
 
 #import "BookListTableViewController.h"
 #import "NSObject+StringConverter.h"
+#import "BookDetailViewController.h"
+
 @interface BookListTableViewController ()
 @property (nonatomic) NSArray *arrayOfBookList;
 
@@ -66,37 +68,37 @@
     return [self.arrayOfBookList count];
 }
 
+#pragma mark - Table view delegate
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-
-    //-Used to debug at what time this method receives the information. (Useful for debugging multithreading)
-    //NSLog(@"%@", self.arrayOfBookList[indexPath.row]);
-    //NSLog(@"Within cell for row the count is %lu", (unsigned long)[self.arrayOfBookList count]);
     
     NSString *stringTitleOfBook = self.arrayOfBookList[indexPath.row][@"title"];
-    
     NSString *stringAuthorOfBook = self.arrayOfBookList[indexPath.row][@"author"];
     
     //methodConverToFormattedString is from a category. Method is used to format strings
     cell.textLabel.attributedText = [self methodConvertToFormattedString:stringTitleOfBook sizeOfString:15.0f];
     cell.detailTextLabel.attributedText = [self methodConvertToFormattedString:stringAuthorOfBook sizeOfString:12.0f];
+    
+    //-Used to debug at what time this method receives the information. (Useful for debugging multithreading)
+    //NSLog(@"%@", self.arrayOfBookList[indexPath.row]);
+    //NSLog(@"Within cell for row the count is %lu", (unsigned long)[self.arrayOfBookList count]);
 
     return cell;
     
     
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"segueToBookDetail" sender:self.arrayOfBookList[indexPath.row]];
 }
-*/
+
+#pragma mark - Storyboard Segue 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    [segue.destinationViewController setDictionaryBookInformation:sender];
+}
 
 /*
 // Override to support conditional editing of the table view.

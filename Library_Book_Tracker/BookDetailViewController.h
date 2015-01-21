@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface BookDetailViewController : UIViewController
+
+@property (nonatomic) NSDictionary *dictionaryBookInformation;
+
 @property (weak, nonatomic) IBOutlet UILabel *labelBookTitle;
 @property (weak, nonatomic) IBOutlet UILabel *labelBookAuthor;
 @property (weak, nonatomic) IBOutlet UILabel *labelBookPublisher;

@@ -17,6 +17,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.labelBookTitle.text = self.dictionaryBookInformation[@"title"];
+    self.labelBookAuthor.text = self.dictionaryBookInformation[@"author"];
+    
+    if (self.dictionaryBookInformation[@"publisher"] == nil) {
+        self.labelBookPublisher.text = [NSString stringWithFormat:@"- No Publisher Listed! -"];
+    }else{
+        self.labelBookPublisher.text = [NSString stringWithFormat:@"Publisher: %@", self.dictionaryBookInformation[@"publisher"]];
+    }
+    
+    self.labelBookTags.text = [NSString stringWithFormat:@"Tags: %@,", self.dictionaryBookInformation[@"categories"]];
+    self.labelBookLatestCheckout.text = [NSString stringWithFormat:@"Last Checked Out:\n%@ At %@",
+                                         self.dictionaryBookInformation[@"lastCheckedOut"],
+                                         self.dictionaryBookInformation[@"lastCheckedOut"]];
+    
+
+
 }
 
 - (void)didReceiveMemoryWarning {
