@@ -69,10 +69,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fas-WW-ezK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="528" translatesAutoresizingMaskIntoConstraints="NO" id="fas-WW-ezK">
                                 <rect key="frame" x="36" y="84" width="528" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="111" id="FOH-QA-lgT"/>
                                     <constraint firstAttribute="height" constant="45" id="Sr1-Gq-wwe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -189,6 +188,9 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonBookSubmit:" destination="lVd-ZD-6SS" eventType="touchUpInside" id="HMV-7Z-eHb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -214,6 +216,12 @@
                     <navigationItem key="navigationItem" title="Add Book" id="jdG-oO-Fk0">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="uXB-o4-y1w"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="textFieldBookAuthor" destination="s3L-NC-Xdg" id="q5I-Kj-Nhc"/>
+                        <outlet property="textFieldBookCategories" destination="Ic9-h0-2KR" id="0KF-sy-KHY"/>
+                        <outlet property="textFieldBookPublisher" destination="H0q-WL-Kuc" id="ifC-gP-x4e"/>
+                        <outlet property="textFieldBookTitle" destination="K3p-J4-bHD" id="k9Y-F2-mII"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TtO-yG-5aU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

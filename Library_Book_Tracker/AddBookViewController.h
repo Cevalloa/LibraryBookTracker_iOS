@@ -10,4 +10,13 @@
 
 @interface AddBookViewController : UIViewController
 
+#pragma mark - IBOutlet Properties
+@property (weak, nonatomic) IBOutlet UITextField *textFieldBookTitle;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldBookAuthor;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldBookPublisher;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldBookCategories;
+
+#pragma mark - IBAction Methods
+- (IBAction)buttonBookSubmit:(id)sender;
+
 @end

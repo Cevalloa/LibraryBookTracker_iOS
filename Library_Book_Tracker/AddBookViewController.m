@@ -10,10 +10,12 @@
 
 @interface AddBookViewController ()
 
+
 @end
 
 @implementation AddBookViewController
 
+#pragma mark - View Controller Lifecycle Methods
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -33,5 +35,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - IBAction Methods
+- (IBAction)buttonBookSubmit:(id)sender {
+}
 
 @end

@@ -89,7 +89,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    NSLog(@"count works %ld", [self.arrayOfBookList count]);
     return [self.arrayOfBookList count];
 }
 
