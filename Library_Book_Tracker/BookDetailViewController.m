@@ -38,7 +38,7 @@
     if([stringBookAuthor isKindOfClass:[NSNull class]]){
         self.labelBookAuthor.text = @"-No Author-";
     }else{
-        self.labelBookTitle.text = stringBookAuthor;
+        self.labelBookAuthor.text = stringBookAuthor;
     }
     
     if([stringBookPublisher isKindOfClass:[NSNull class]]){
@@ -120,6 +120,13 @@
 }
 
 #pragma mark - IBAction Methods
+- (IBAction)barButtonItemCancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)barButtonItemShare:(id)sender {
+}
+
 //Asks User For Name To Checkout Book
 - (IBAction)buttonBookCheckout:(id)sender {
     //For iOS 8 and up please use UIAlertController
@@ -130,7 +137,8 @@
     
 }
 
-
+- (IBAction)buttonBookUpdate:(id)sender {
+}
 
 
 @end

@@ -20,7 +20,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelBookLatestCheckout;
 
 #pragma mark IBAction Methods
+- (IBAction)barButtonItemCancel:(id)sender;
+- (IBAction)barButtonItemShare:(id)sender;
 - (IBAction)buttonBookCheckout:(id)sender;
+- (IBAction)buttonBookUpdate:(id)sender;
 
 
 @end
