@@ -50,10 +50,14 @@
     //Adds books to the end of the API String
    // NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@/books",[userDefaults objectForKey:@"stringUrlForApi"]]];
     
-    NSURL *url = [[NSURL alloc] initWithString:@"http://prolific-interview.herokuapp.com/54be6ef246c2c2000866aa4d/books"];
+    NSString *stringBookPost = [NSString stringWithFormat:@"%@/books", [userDefaults objectForKey:@"stringUrlForApi"] ];
     
-    NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig];
+    NSURL *url = [[NSURL alloc] initWithString:stringBookPost];
+    
+    
+    
+    
+    NSURLSession *session = [NSURLSession sharedSession];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     request.HTTPMethod = @"GET";
     
