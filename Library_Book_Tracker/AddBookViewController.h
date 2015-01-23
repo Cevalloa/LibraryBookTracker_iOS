@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddBookViewController : UIViewController
+@interface AddBookViewController : UIViewController <UITextFieldDelegate>
 
 #pragma mark - IBOutlet Properties
 @property (weak, nonatomic) IBOutlet UITextField *textFieldBookTitle;
@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textFieldBookCategories;
 
 #pragma mark - IBAction Methods
+- (IBAction)barButtonItemDone:(id)sender;
 - (IBAction)buttonBookSubmit:(id)sender;
 
 @end

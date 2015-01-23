@@ -19,25 +19,66 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //Goes over every subview, sets all UITextFields to "self" as the delegate
+    for (UIView *sub in self.view.subviews){
+        if ([sub isKindOfClass:[UITextField class]]){
+            //Casting to use UITextField methods
+            ((UITextField *)sub).delegate = self;
+        }
+    }
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - UITextField Delegate Methods
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return false;
 }
 
-/*
-#pragma mark - Navigation
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    //Fixes issue with categories not appearing on 3.5" devices
+    if([textField.placeholder isEqualToString:@"Categories"]){
+        CGRect viewSize = self.view.frame;
+        //Moves the frame up to see categories better
+        [self.view setFrame:CGRectMake(viewSize.origin.x, viewSize.origin.y -50, viewSize.size.width, viewSize.size.height)];
+    
+    }
 }
-*/
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    
+    //Fixes issue with categories not appearing on 3.5" devices
+    if([textField.placeholder isEqualToString:@"Categories"]){
+        CGRect viewSize = self.view.frame;
+        //Moves the frame down after categories is done editing
+        [self.view setFrame:CGRectMake(viewSize.origin.x, viewSize.origin.y +50, viewSize.size.width, viewSize.size.height)];
+        
+    }
+}
+
+
 
 #pragma mark - IBAction Methods
-- (IBAction)buttonBookSubmit:(id)sender {
+- (IBAction)barButtonItemDone:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)buttonBookSubmit:(id)sender {
+    
+    //Makes sure title and author aren't empty before proceeding
+    if(self.textFieldBookTitle.text.length == 0 && self.textFieldBookAuthor.text.length == 0){
+        UIAlertView *alertViewMissingFields = [[UIAlertView alloc] initWithTitle:@"Woops!" message:@"Please fill out the book's title & author"  delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        
+        [alertViewMissingFields show];
+    }else{
+        NSLog(@"Acceptable");
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+    
+}
+
+
 
 @end

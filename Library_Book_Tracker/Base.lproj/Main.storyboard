@@ -214,7 +214,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Book" id="jdG-oO-Fk0">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="uXB-o4-y1w"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="uXB-o4-y1w">
+                            <connections>
+                                <action selector="barButtonItemDone:" destination="lVd-ZD-6SS" id="Kco-dl-sN6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="textFieldBookAuthor" destination="s3L-NC-Xdg" id="q5I-Kj-Nhc"/>

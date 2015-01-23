@@ -81,7 +81,7 @@
 #pragma mark - UIAlertView Delegate Methods
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     //ButtonIndex 0 = Cancel, ButtonIndex 1 = Accept
-    NSLog(@"%@ was pressed at %ld", [alertView textFieldAtIndex:0].text, buttonIndex);
+        //NSLog(@"%@ was pressed at %ld", [alertView textFieldAtIndex:0].text, (long)buttonIndex);
     [self methodPost:[alertView textFieldAtIndex:0].text];
 }
 
@@ -111,7 +111,7 @@
     if (!error){
         NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request fromData:data completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             
-    //Uncomment For debuging purposes
+    //Uncomment For debuging purposes to see returned values
 //            NSLog(@"The data is.. %@", data);
 //            NSLog(@"The response is.. %@", response);
 //            NSLog(@"The error is.. %@", error);
