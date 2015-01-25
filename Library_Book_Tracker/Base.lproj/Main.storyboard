@@ -57,7 +57,7 @@
             </objects>
             <point key="canvasLocation" x="265" y="346"/>
         </scene>
-        <!--Book Detail View Controller-->
+        <!--Book Detail-->
         <scene sceneID="sgD-pp-aCg">
             <objects>
                 <viewController id="bPl-Kt-hOd" customClass="BookDetailViewController" sceneMemberID="viewController">
@@ -179,7 +179,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="XDE-33-2xr">
+                    <navigationItem key="navigationItem" title="Book Detail" id="XDE-33-2xr">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="QTP-9I-R6b">
                             <connections>
                                 <action selector="barButtonItemCancel:" destination="bPl-Kt-hOd" id="SUL-Qu-5e8"/>
@@ -197,14 +197,14 @@
                         <outlet property="labelBookPublisher" destination="Cbf-Cb-V8o" id="Gdq-LO-6s9"/>
                         <outlet property="labelBookTags" destination="Lyt-6A-Kak" id="kUJ-A3-t7B"/>
                         <outlet property="labelBookTitle" destination="fas-WW-ezK" id="0aG-SV-C1V"/>
-                        <segue destination="abh-hf-oQP" kind="show" identifier="segueToEditBook" id="sPj-Cn-g84"/>
+                        <segue destination="abh-hf-oQP" kind="show" identifier="segueToEditBook" id="Wap-1x-IWz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwD-qH-Yb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1124" y="332"/>
         </scene>
-        <!--Edit Book View Controller-->
+        <!--Update Book-->
         <scene sceneID="VdG-Ru-mc6">
             <objects>
                 <viewController id="abh-hf-oQP" customClass="EditBookViewController" sceneMemberID="viewController">
@@ -253,6 +253,13 @@
                             <constraint firstItem="QkN-df-0Vn" firstAttribute="top" secondItem="hQr-kO-RmI" secondAttribute="bottom" constant="20" id="zEm-cW-kZu"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Update Book" id="e88-cy-5jv">
+                        <barButtonItem key="rightBarButtonItem" title="Accept" id="4u2-GY-O7Y">
+                            <connections>
+                                <action selector="barButtomItemAcce:" destination="abh-hf-oQP" id="A3v-JS-JfY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="textFieldBookAuthor" destination="QkN-df-0Vn" id="WdX-Fi-yJt"/>
                         <outlet property="textFieldBookPublisher" destination="8vE-tl-ii4" id="Rae-6A-Sf0"/>
@@ -276,35 +283,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K3p-J4-bHD">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K3p-J4-bHD">
                                 <rect key="frame" x="36" y="84" width="528" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Author" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s3L-NC-Xdg">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Author" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s3L-NC-Xdg">
                                 <rect key="frame" x="36" y="129" width="528" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Publisher" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H0q-WL-Kuc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Publisher" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H0q-WL-Kuc">
                                 <rect key="frame" x="36" y="174" width="528" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Categories" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ic9-h0-2KR">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Categories" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ic9-h0-2KR">
                                 <rect key="frame" x="36" y="219" width="528" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EfP-31-mJz">
-                                <rect key="frame" x="36" y="269" width="528" height="30"/>
-                                <state key="normal" title="Submit">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonBookSubmit:" destination="lVd-ZD-6SS" eventType="touchUpInside" id="HMV-7Z-eHb"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -314,22 +312,23 @@
                             <constraint firstItem="s3L-NC-Xdg" firstAttribute="top" secondItem="K3p-J4-bHD" secondAttribute="bottom" constant="15" id="EpC-rg-JEv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="s3L-NC-Xdg" secondAttribute="trailing" constant="20" id="L8x-6D-HDI"/>
                             <constraint firstItem="H0q-WL-Kuc" firstAttribute="leading" secondItem="V7p-fU-6BC" secondAttribute="leadingMargin" constant="20" id="NfT-5v-qWj"/>
-                            <constraint firstItem="EfP-31-mJz" firstAttribute="top" secondItem="Ic9-h0-2KR" secondAttribute="bottom" constant="20" id="PIq-zW-9XS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="H0q-WL-Kuc" secondAttribute="trailing" constant="20" id="SNk-6w-Ylg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="K3p-J4-bHD" secondAttribute="trailing" constant="20" id="WRc-O3-gEn"/>
                             <constraint firstItem="K3p-J4-bHD" firstAttribute="leading" secondItem="V7p-fU-6BC" secondAttribute="leadingMargin" constant="20" id="Wl4-xg-wFT"/>
                             <constraint firstItem="Ic9-h0-2KR" firstAttribute="leading" secondItem="V7p-fU-6BC" secondAttribute="leadingMargin" constant="20" id="YCO-vE-XLG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="EfP-31-mJz" secondAttribute="trailing" constant="20" id="YLX-dV-ZoE"/>
-                            <constraint firstItem="EfP-31-mJz" firstAttribute="leading" secondItem="V7p-fU-6BC" secondAttribute="leadingMargin" constant="20" id="idB-RA-UaV"/>
                             <constraint firstItem="Ic9-h0-2KR" firstAttribute="top" secondItem="H0q-WL-Kuc" secondAttribute="bottom" constant="15" id="jJw-3j-D5I"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ic9-h0-2KR" secondAttribute="trailing" constant="20" id="rZD-JP-Js9"/>
-                            <constraint firstAttribute="centerX" secondItem="EfP-31-mJz" secondAttribute="centerX" id="yWD-ST-HKj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Book" id="jdG-oO-Fk0">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="uXB-o4-y1w">
                             <connections>
                                 <action selector="barButtonItemDone:" destination="lVd-ZD-6SS" id="Kco-dl-sN6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="Bxm-Kj-5hg">
+                            <connections>
+                                <action selector="buttonBookSubmit:" destination="lVd-ZD-6SS" id="5aB-BG-iBW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -352,6 +351,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="F4B-4K-JBG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.3033936693" blue="0.18355613879999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -94,9 +94,9 @@
             
             if (error == nil){
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    UIAlertView *alertViewMissingFields = [[UIAlertView alloc] initWithTitle:@"Successful!" message:@"Added the book!"  delegate:nil cancelButtonTitle:@"Okay!" otherButtonTitles:nil];
+                    UIAlertView *alertAddedBook = [[UIAlertView alloc] initWithTitle:@"Successful!" message:@"Added the book!"  delegate:nil cancelButtonTitle:@"Okay!" otherButtonTitles:nil];
                     
-                    [alertViewMissingFields show];
+                    [alertAddedBook show];
                     [self dismissViewControllerAnimated:YES completion:nil];
                 });
                 // Do something

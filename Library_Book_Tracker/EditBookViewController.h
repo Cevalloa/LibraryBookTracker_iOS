@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditBookViewController : UIViewController
+@interface EditBookViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic) NSDictionary *dictionaryBookInformationToEdit;
 
@@ -18,5 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textFieldBookPublisher;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldBookTags;
 
+#pragma mark - IBActions properties
+- (IBAction)barButtomItemAcce:(id)sender;
 
 @end

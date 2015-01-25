@@ -8,6 +8,7 @@
 
 #import "BookDetailViewController.h"
 #import "EditBookViewController.h"
+#import "NSDictionary+RemovesNilValues.h"
 
 @interface BookDetailViewController () <UIAlertViewDelegate>{
     NSString *stringBookID;
@@ -22,45 +23,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    id stringBookTitle = self.dictionaryBookInformation[@"title"];
-    id stringBookAuthor = self.dictionaryBookInformation[@"author"];
-    id stringBookPublisher = self.dictionaryBookInformation[@"publisher"];
-    id stringBookTags = self.dictionaryBookInformation[@"categories"];
-    id stringBookLatestCheckout = self.dictionaryBookInformation[@"lastCheckedOut"];
-    id stringBookLatestCheckoutBy = self.dictionaryBookInformation[@"lastCheckedOutBy"];
+    self.labelBookTitle.text = [self.dictionaryBookInformation methodCheckIfKeyNil:@"title"];
     
-    //Brings in passed dictionary, and parses it to the IBOutlets (if they aren't empty)
-    if ([stringBookTitle isKindOfClass:[NSNull class]]){
-        self.labelBookTitle.text = @"-No Title";
+    self.labelBookAuthor.text = [self.dictionaryBookInformation methodCheckIfKeyNil:@"author"];
+    
+    self.labelBookPublisher.text = [self.dictionaryBookInformation methodCheckIfKeyNil:@"publisher"];
+    
+    self.labelBookTags.text = [self.dictionaryBookInformation methodCheckIfKeyNil:@"categories"];
+    
+    //Checks if lastCheckedOutBy empty (if true, tells user there is nothing there)
+    NSString *stringFullCheckOut = [NSString stringWithFormat:@"Last Checked Out:%@",[self.dictionaryBookInformation methodCheckIfKeyNil:@"lastCheckedOutBy"]];
+    
+    //Reminder: methodCheckIfKeyNil returns -No [DictionaryKey] if value == null
+    if ([@"Last Checked Out:-No lastCheckedOutBy" isEqualToString:stringFullCheckOut]){
+        
+        self.labelBookLatestCheckout.text = @"No Checkouts Yet";
     }else{
-        self.labelBookTitle.text = stringBookTitle;
+        self.labelBookLatestCheckout.text = [NSString stringWithFormat:@"%@ At %@",stringFullCheckOut, [self.dictionaryBookInformation methodCheckIfKeyNil:@"lastCheckedOut"]];
     }
     
-    if([stringBookAuthor isKindOfClass:[NSNull class]]){
-        self.labelBookAuthor.text = @"-No Author-";
-    }else{
-        self.labelBookAuthor.text = stringBookAuthor;
-    }
-    
-    if([stringBookPublisher isKindOfClass:[NSNull class]]){
-        self.labelBookPublisher.text = @"-No Publisher-";
-    }else{
-        self.labelBookPublisher.text = [NSString stringWithFormat:@"Publisher: %@", stringBookPublisher];
-    }
-    
-    if([stringBookTags isKindOfClass:[NSNull class]]){
-        self.labelBookTags.text = @"-No Tags-";
-    }else{
-        self.labelBookTags.text = [NSString stringWithFormat:@"Tags: %@,", stringBookTags];
-    }
-    
-    if([stringBookLatestCheckout isKindOfClass:[NSNull class]] &&
-       [stringBookLatestCheckoutBy isKindOfClass:[NSNull class]]){
-      self.labelBookLatestCheckout.text = @"-No Checkouts";
-    }else{
-        self.labelBookLatestCheckout.text = [NSString stringWithFormat:@"Last Checked Out:%@ At %@", stringBookLatestCheckoutBy, stringBookLatestCheckout];
-
-    }
     
     //For the URL Of The actual book
     stringBookID = [NSString stringWithFormat:@"%@", self.dictionaryBookInformation[@"url"]];
@@ -71,8 +52,9 @@
 #pragma mark - UIAlertView Delegate Methods
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     //ButtonIndex 0 = Cancel, ButtonIndex 1 = Accept
-
-    [self methodPut:[alertView textFieldAtIndex:0].text];
+    if (buttonIndex == 1){
+        [self methodPut:[alertView textFieldAtIndex:0].text];
+    }
 }
 
 #pragma mark - Connectivity Methods
@@ -150,6 +132,5 @@
 - (IBAction)buttonBookUpdate:(id)sender {
     [self performSegueWithIdentifier:@"segueToEditBook" sender:self.dictionaryBookInformation];
 }
-
 
 @end

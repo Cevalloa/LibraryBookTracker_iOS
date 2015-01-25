@@ -18,6 +18,7 @@
 		CCE3E0F21A6EB5F100D595F6 /* AddBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0F11A6EB5F100D595F6 /* AddBookViewController.m */; };
 		CCE3E0F81A6EE01800D595F6 /* NSObject+StringConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0F71A6EE01800D595F6 /* NSObject+StringConverter.m */; };
 		CCE3E1061A73481F00D595F6 /* EditBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E1051A73481F00D595F6 /* EditBookViewController.m */; };
+		CCE3E1091A74975A00D595F6 /* NSDictionary+RemovesNilValues.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E1081A74975A00D595F6 /* NSDictionary+RemovesNilValues.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		CCE3E0F71A6EE01800D595F6 /* NSObject+StringConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+StringConverter.m"; sourceTree = "<group>"; };
 		CCE3E1041A73481F00D595F6 /* EditBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditBookViewController.h; sourceTree = "<group>"; };
 		CCE3E1051A73481F00D595F6 /* EditBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditBookViewController.m; sourceTree = "<group>"; };
+		CCE3E1071A74975A00D595F6 /* NSDictionary+RemovesNilValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+RemovesNilValues.h"; sourceTree = "<group>"; };
+		CCE3E1081A74975A00D595F6 /* NSDictionary+RemovesNilValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+RemovesNilValues.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +169,8 @@
 			children = (
 				CCE3E0F61A6EE01800D595F6 /* NSObject+StringConverter.h */,
 				CCE3E0F71A6EE01800D595F6 /* NSObject+StringConverter.m */,
+				CCE3E1071A74975A00D595F6 /* NSDictionary+RemovesNilValues.h */,
+				CCE3E1081A74975A00D595F6 /* NSDictionary+RemovesNilValues.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCE3E1091A74975A00D595F6 /* NSDictionary+RemovesNilValues.m in Sources */,
 				CCE3E0EC1A6EB06000D595F6 /* BookListTableViewController.m in Sources */,
 				CCE3E0F81A6EE01800D595F6 /* NSObject+StringConverter.m in Sources */,
 				CCE3E0CA1A6EADC200D595F6 /* AppDelegate.m in Sources */,

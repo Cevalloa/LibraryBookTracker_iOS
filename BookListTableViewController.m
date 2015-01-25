@@ -8,6 +8,7 @@
 
 #import "BookListTableViewController.h"
 #import "NSObject+StringConverter.h"
+#import "NSDictionary+RemovesNilValues.h"
 #import "BookDetailViewController.h"
 
 @interface BookListTableViewController ()
@@ -102,17 +103,20 @@
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    id stringTitleOfBook = self.arrayOfBookList[indexPath.row][@"title"];
-    id stringAuthorOfBook = self.arrayOfBookList[indexPath.row][@"author"];
+    id stringTitleOfBook = [self.arrayOfBookList[indexPath.row] methodCheckIfKeyNil:@"title"];
+    id stringAuthorOfBook = [self.arrayOfBookList[indexPath.row] methodCheckIfKeyNil:@"author"];
+    
+   // id stringTitleOfBook = [self.arrayOfBookList[indexPath.row] [@"title"]];
+   // id stringAuthorOfBook = self.arrayOfBookList[indexPath.row][@"author"];
     
     //Reminder.. cellForRow throws NSNull exception if tableviewcell text is null
-    if([stringTitleOfBook isKindOfClass:[NSNull class]]){
-        stringTitleOfBook = @"-No Title";
-    }
-    
-    if([stringAuthorOfBook isKindOfClass:[NSNull class]]){
-        stringAuthorOfBook = @"-No Author-";
-    }
+//    if([stringTitleOfBook isKindOfClass:[NSNull class]]){
+//        stringTitleOfBook = @"-No Title";
+//    }
+//    
+//    if([stringAuthorOfBook isKindOfClass:[NSNull class]]){
+//        stringAuthorOfBook = @"-No Author-";
+//    }
     
     //methodConverToFormattedString is from a category. Method is used to format strings
     cell.textLabel.attributedText = [self methodConvertToFormattedString:stringTitleOfBook sizeOfString:15.0f];
