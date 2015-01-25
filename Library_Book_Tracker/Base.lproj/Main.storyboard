@@ -55,7 +55,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Yn-1G-pzW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="265" y="355"/>
+            <point key="canvasLocation" x="265" y="346"/>
         </scene>
         <!--Book Detail View Controller-->
         <scene sceneID="sgD-pp-aCg">
@@ -100,26 +100,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TF-Ms-tBn">
-                                <rect key="frame" x="41" y="337" width="254" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Checkout">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonBookCheckout:" destination="bPl-Kt-hOd" eventType="touchUpInside" id="ybS-Db-556"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOs-6I-CVd">
-                                <rect key="frame" x="305" y="337" width="254" height="30"/>
-                                <color key="backgroundColor" red="0.28235294119999998" green="0.74509803919999995" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Update">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonBookUpdate:" destination="bPl-Kt-hOd" eventType="touchUpInside" id="b3S-nM-Bbd"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Checkout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEZ-Kg-kZ8">
                                 <rect key="frame" x="36" y="272" width="528" height="45"/>
                                 <color key="backgroundColor" red="0.28235294119999998" green="0.74509803919999995" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -131,10 +111,41 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOs-6I-CVd">
+                                <rect key="frame" x="305" y="520" width="254" height="30"/>
+                                <color key="backgroundColor" red="0.28235294119999998" green="0.74509803919999995" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Update">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonBookUpdate:" destination="bPl-Kt-hOd" eventType="touchUpInside" id="b3S-nM-Bbd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAi-4a-cWc">
+                                <rect key="frame" x="-1" y="550" width="602" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="xzn-Ic-Nge"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TF-Ms-tBn">
+                                <rect key="frame" x="41" y="520" width="254" height="30"/>
+                                <color key="backgroundColor" red="0.23529411759999999" green="0.83921568629999999" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Checkout">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonBookCheckout:" destination="bPl-Kt-hOd" eventType="touchUpInside" id="ybS-Db-556"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Lyt-6A-Kak" firstAttribute="top" secondItem="Cbf-Cb-V8o" secondAttribute="bottom" constant="20" id="0ky-o6-g2h"/>
+                            <constraint firstItem="xAi-4a-cWc" firstAttribute="top" secondItem="0TF-Ms-tBn" secondAttribute="bottom" id="3iZ-tY-FC1"/>
                             <constraint firstItem="fas-WW-ezK" firstAttribute="leading" secondItem="k2K-MM-75q" secondAttribute="leadingMargin" id="44g-Ge-lNF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fas-WW-ezK" secondAttribute="trailing" id="5XJ-bg-8Oc"/>
                             <constraint firstItem="0TF-Ms-tBn" firstAttribute="leading" secondItem="k2K-MM-75q" secondAttribute="leadingMargin" constant="25" id="GQu-gO-hwV"/>
@@ -143,13 +154,17 @@
                             <constraint firstItem="l5v-4B-CPF" firstAttribute="leading" secondItem="k2K-MM-75q" secondAttribute="leadingMargin" constant="5" id="LoU-7l-CaC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Cbf-Cb-V8o" secondAttribute="trailing" constant="10" id="M4q-Up-Iy0"/>
                             <constraint firstItem="NOs-6I-CVd" firstAttribute="width" secondItem="0TF-Ms-tBn" secondAttribute="width" id="Ndj-kF-WNu"/>
+                            <constraint firstItem="IUg-Nd-4iG" firstAttribute="top" secondItem="xAi-4a-cWc" secondAttribute="bottom" id="RFa-dO-Tqp"/>
                             <constraint firstItem="Lyt-6A-Kak" firstAttribute="leading" secondItem="k2K-MM-75q" secondAttribute="leadingMargin" constant="15" id="S5C-qY-kyR"/>
+                            <constraint firstItem="xAi-4a-cWc" firstAttribute="top" secondItem="NOs-6I-CVd" secondAttribute="bottom" id="U6W-IA-I3M"/>
                             <constraint firstItem="fas-WW-ezK" firstAttribute="top" secondItem="0Rg-Ry-gdr" secondAttribute="bottom" constant="20" id="UtU-Qe-71k"/>
+                            <constraint firstItem="xAi-4a-cWc" firstAttribute="leading" secondItem="k2K-MM-75q" secondAttribute="leadingMargin" constant="-17" id="W56-ht-Nrp"/>
                             <constraint firstItem="ZEZ-Kg-kZ8" firstAttribute="leading" secondItem="k2K-MM-75q" secondAttribute="leadingMargin" constant="20" id="YKp-4Z-ihu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="l5v-4B-CPF" secondAttribute="trailing" constant="5" id="fJ5-dc-JRH"/>
                             <constraint firstItem="NOs-6I-CVd" firstAttribute="leading" secondItem="0TF-Ms-tBn" secondAttribute="trailing" constant="10" id="jha-4h-bYV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Lyt-6A-Kak" secondAttribute="trailing" constant="15" id="lbc-hC-jwv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NOs-6I-CVd" secondAttribute="trailing" constant="25" id="m5x-D0-R66"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xAi-4a-cWc" secondAttribute="trailing" constant="-17" id="mVu-Tg-CVl"/>
                             <constraint firstItem="Cbf-Cb-V8o" firstAttribute="top" secondItem="l5v-4B-CPF" secondAttribute="bottom" constant="20" id="nYV-up-lgu"/>
                             <constraint firstItem="ZEZ-Kg-kZ8" firstAttribute="top" secondItem="Lyt-6A-Kak" secondAttribute="bottom" constant="20" id="o0f-uE-yoG"/>
                             <constraint firstItem="l5v-4B-CPF" firstAttribute="top" secondItem="fas-WW-ezK" secondAttribute="bottom" constant="20" id="sfl-AN-ozk"/>
@@ -157,9 +172,15 @@
                             <constraint firstItem="0TF-Ms-tBn" firstAttribute="top" secondItem="ZEZ-Kg-kZ8" secondAttribute="bottom" constant="20" id="xUq-Ae-lem"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZEZ-Kg-kZ8" secondAttribute="trailing" constant="20" id="ymt-17-uHu"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="xUq-Ae-lem"/>
+                                <exclude reference="v3b-3S-x1r"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="XDE-33-2xr">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="QTP-9I-R6b">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="QTP-9I-R6b">
                             <connections>
                                 <action selector="barButtonItemCancel:" destination="bPl-Kt-hOd" id="SUL-Qu-5e8"/>
                             </connections>
@@ -171,16 +192,77 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="labelBookAuthor" destination="l5v-4B-CPF" id="HJW-jW-fck"/>
-                        <outlet property="labelBookLatestCheckout" destination="ZEZ-Kg-kZ8" id="lOe-Ck-ouZ"/>
-                        <outlet property="labelBookPublisher" destination="Cbf-Cb-V8o" id="1c3-Sb-3uZ"/>
-                        <outlet property="labelBookTags" destination="Lyt-6A-Kak" id="1cH-Zq-1Fz"/>
-                        <outlet property="labelBookTitle" destination="fas-WW-ezK" id="sB5-mJ-aeP"/>
+                        <outlet property="labelBookAuthor" destination="l5v-4B-CPF" id="GS9-KS-tgN"/>
+                        <outlet property="labelBookLatestCheckout" destination="ZEZ-Kg-kZ8" id="7xy-Bl-vpF"/>
+                        <outlet property="labelBookPublisher" destination="Cbf-Cb-V8o" id="Gdq-LO-6s9"/>
+                        <outlet property="labelBookTags" destination="Lyt-6A-Kak" id="kUJ-A3-t7B"/>
+                        <outlet property="labelBookTitle" destination="fas-WW-ezK" id="0aG-SV-C1V"/>
+                        <segue destination="abh-hf-oQP" kind="show" identifier="segueToEditBook" id="sPj-Cn-g84"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwD-qH-Yb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1029" y="355"/>
+            <point key="canvasLocation" x="1124" y="332"/>
+        </scene>
+        <!--Edit Book View Controller-->
+        <scene sceneID="VdG-Ru-mc6">
+            <objects>
+                <viewController id="abh-hf-oQP" customClass="EditBookViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tzT-Z0-nYe"/>
+                        <viewControllerLayoutGuide type="bottom" id="5nr-R4-E4l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NHz-jc-tla">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hQr-kO-RmI">
+                                <rect key="frame" x="16" y="84" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QkN-df-0Vn">
+                                <rect key="frame" x="21" y="134" width="558" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8vE-tl-ii4">
+                                <rect key="frame" x="26" y="184" width="548" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D1Q-sX-odz">
+                                <rect key="frame" x="31" y="234" width="538" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="hQr-kO-RmI" secondAttribute="trailing" id="261-mF-kXH"/>
+                            <constraint firstItem="8vE-tl-ii4" firstAttribute="top" secondItem="QkN-df-0Vn" secondAttribute="bottom" constant="20" id="4X7-WM-w3B"/>
+                            <constraint firstItem="hQr-kO-RmI" firstAttribute="top" secondItem="tzT-Z0-nYe" secondAttribute="bottom" constant="20" id="5b1-B4-brO"/>
+                            <constraint firstItem="8vE-tl-ii4" firstAttribute="leading" secondItem="NHz-jc-tla" secondAttribute="leadingMargin" constant="10" id="8p8-At-WRH"/>
+                            <constraint firstItem="QkN-df-0Vn" firstAttribute="leading" secondItem="NHz-jc-tla" secondAttribute="leadingMargin" constant="5" id="8za-ss-FtD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QkN-df-0Vn" secondAttribute="trailing" constant="5" id="hWN-ep-Wsq"/>
+                            <constraint firstItem="hQr-kO-RmI" firstAttribute="leading" secondItem="NHz-jc-tla" secondAttribute="leadingMargin" id="hz2-QR-1tH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="D1Q-sX-odz" secondAttribute="trailing" constant="15" id="kmZ-Km-lK4"/>
+                            <constraint firstItem="D1Q-sX-odz" firstAttribute="top" secondItem="8vE-tl-ii4" secondAttribute="bottom" constant="20" id="rKa-Tm-o7l"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8vE-tl-ii4" secondAttribute="trailing" constant="10" id="spk-ao-Oqh"/>
+                            <constraint firstItem="D1Q-sX-odz" firstAttribute="leading" secondItem="NHz-jc-tla" secondAttribute="leadingMargin" constant="15" id="wtw-tg-uPv"/>
+                            <constraint firstItem="QkN-df-0Vn" firstAttribute="top" secondItem="hQr-kO-RmI" secondAttribute="bottom" constant="20" id="zEm-cW-kZu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textFieldBookAuthor" destination="QkN-df-0Vn" id="WdX-Fi-yJt"/>
+                        <outlet property="textFieldBookPublisher" destination="8vE-tl-ii4" id="Rae-6A-Sf0"/>
+                        <outlet property="textFieldBookTags" destination="D1Q-sX-odz" id="k1K-ah-Qqq"/>
+                        <outlet property="textFieldBookTitle" destination="hQr-kO-RmI" id="nbc-f7-Pzn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ngp-qX-hwt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1836" y="332"/>
         </scene>
         <!--Add Book-->
         <scene sceneID="dKa-Y6-3Og">

@@ -7,6 +7,7 @@
 //
 
 #import "BookDetailViewController.h"
+#import "EditBookViewController.h"
 
 @interface BookDetailViewController () <UIAlertViewDelegate>{
     NSString *stringBookID;
@@ -119,9 +120,18 @@
     
 }
 
+#pragma mark - Storyboard Segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"segueToEditBook"]){
+        [segue.destinationViewController setDictionaryBookInformationToEdit:sender];
+    
+    }
+    
+}
+
 #pragma mark - IBAction Methods
 - (IBAction)barButtonItemCancel:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)barButtonItemShare:(id)sender {
@@ -138,6 +148,7 @@
 }
 
 - (IBAction)buttonBookUpdate:(id)sender {
+    [self performSegueWithIdentifier:@"segueToEditBook" sender:self.dictionaryBookInformation];
 }
 
 

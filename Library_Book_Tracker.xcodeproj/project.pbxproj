@@ -17,6 +17,7 @@
 		CCE3E0EF1A6EB5CF00D595F6 /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0EE1A6EB5CF00D595F6 /* BookDetailViewController.m */; };
 		CCE3E0F21A6EB5F100D595F6 /* AddBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0F11A6EB5F100D595F6 /* AddBookViewController.m */; };
 		CCE3E0F81A6EE01800D595F6 /* NSObject+StringConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0F71A6EE01800D595F6 /* NSObject+StringConverter.m */; };
+		CCE3E1061A73481F00D595F6 /* EditBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E1051A73481F00D595F6 /* EditBookViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		CCE3E0F11A6EB5F100D595F6 /* AddBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBookViewController.m; sourceTree = "<group>"; };
 		CCE3E0F61A6EE01800D595F6 /* NSObject+StringConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+StringConverter.h"; sourceTree = "<group>"; };
 		CCE3E0F71A6EE01800D595F6 /* NSObject+StringConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+StringConverter.m"; sourceTree = "<group>"; };
+		CCE3E1041A73481F00D595F6 /* EditBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditBookViewController.h; sourceTree = "<group>"; };
+		CCE3E1051A73481F00D595F6 /* EditBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditBookViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,7 @@
 				CCE3E0F91A6EEACC00D595F6 /* Screen 1 - Lists Books */,
 				CCE3E0FA1A6EEAEB00D595F6 /* Screen 2 - Gives Book Details */,
 				CCE3E0FB1A6EEB0400D595F6 /* Screen 3 - Adds New Book */,
+				CCE3E1001A73473600D595F6 /* Screen 4 - Edit Current Book */,
 				CCE3E0CE1A6EADC300D595F6 /* Main.storyboard */,
 				CCE3E0D11A6EADC300D595F6 /* Images.xcassets */,
 				CCE3E0D31A6EADC300D595F6 /* LaunchScreen.xib */,
@@ -164,6 +168,15 @@
 				CCE3E0F71A6EE01800D595F6 /* NSObject+StringConverter.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		CCE3E1001A73473600D595F6 /* Screen 4 - Edit Current Book */ = {
+			isa = PBXGroup;
+			children = (
+				CCE3E1041A73481F00D595F6 /* EditBookViewController.h */,
+				CCE3E1051A73481F00D595F6 /* EditBookViewController.m */,
+			);
+			name = "Screen 4 - Edit Current Book";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +285,7 @@
 				CCE3E0EF1A6EB5CF00D595F6 /* BookDetailViewController.m in Sources */,
 				CCE3E0F21A6EB5F100D595F6 /* AddBookViewController.m in Sources */,
 				CCE3E0C71A6EADC200D595F6 /* main.m in Sources */,
+				CCE3E1061A73481F00D595F6 /* EditBookViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

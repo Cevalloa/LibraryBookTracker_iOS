@@ -19,8 +19,8 @@
 
 #pragma mark - View Controller Lifecycle Methods
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -28,12 +28,11 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    
+    NSLog(@"View will appear is called");
     [self connect];
 }
 
 #pragma mark - API Connectivity Methods
-
 -(void)connect {
     
     //Change the URL string here to change throughout the app
@@ -63,7 +62,7 @@
     
     //Retrieves books from Swag Library
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        dispatch_sync(dispatch_get_main_queue(), ^{
+        
             self.arrayOfBookList = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
             
     //Debugging To see what JSON Api feed returns
@@ -77,7 +76,7 @@
                 
                 [self.tableView reloadData];
             });
-        });
+        
     }];
     
     [task resume];
