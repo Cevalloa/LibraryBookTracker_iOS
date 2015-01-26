@@ -127,9 +127,12 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="xzn-Ic-Nge"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Delete This Book">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonBookDelete:" destination="bPl-Kt-hOd" eventType="touchUpInside" id="eql-9h-vwI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0TF-Ms-tBn">
                                 <rect key="frame" x="41" y="520" width="254" height="30"/>

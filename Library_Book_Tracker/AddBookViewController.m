@@ -68,54 +68,6 @@
     }
 }
 
-#pragma mark - Connectivity Methods
--(void)methodPost:(NSDictionary *)dictionaryToPost{
-    //Obtains API string to POST a new book (key created in Screen 1)
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *stringBookPost = [NSString stringWithFormat:@"%@/books/", [userDefaults objectForKey:@"stringUrlForApi"] ];
-    
-    NSURL *urlBookPost = [NSURL URLWithString:stringBookPost];
-    
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlBookPost];
-    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
-
-    [request setHTTPMethod:@"POST"];
-    //Converts the dicitonary into JSON
-    NSError *error = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:dictionaryToPost options:kNilOptions error:&error];
-    [request setHTTPBody:data];
-    
-    if (!error){
-        NSURLSessionDataTask *uploadTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-            
-            if (error == nil){
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    UIAlertView *alertAddedBook = [[UIAlertView alloc] initWithTitle:@"Successful!" message:@"Added the book!"  delegate:nil cancelButtonTitle:@"Okay!" otherButtonTitles:nil];
-                    
-                    [alertAddedBook show];
-                    [self dismissViewControllerAnimated:YES completion:nil];
-                });
-                // Do something
-                
-            }
-            //Uncomment For debuging purposes to see returned values
-//                        NSLog(@"The data is.. %@", data);
-//                        NSLog(@"The response is.. %@", response);
-//                        NSLog(@"The error is.. %@", error);
-            
-        }];
-        
-        [uploadTask resume];
-    }
-    
-    
-}
-
-
 #pragma mark - IBAction Methods
 - (IBAction)barButtonItemDone:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -139,6 +91,54 @@
 
         [self methodPost:dictionaryBookEntry];
     }
+    
+}
+
+
+#pragma mark - Connectivity Methods
+-(void)methodPost:(NSDictionary *)dictionaryToPost{
+    //Obtains API string to POST a new book (key created in Screen 1)
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *stringBookPost = [NSString stringWithFormat:@"%@/books/", [userDefaults objectForKey:@"stringUrlForApi"] ];
+    
+    NSURL *urlBookPost = [NSURL URLWithString:stringBookPost];
+    
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlBookPost];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    [request setHTTPMethod:@"POST"];
+    //Converts the dicitonary into JSON
+    NSError *error = nil;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dictionaryToPost options:kNilOptions error:&error];
+    [request setHTTPBody:data];
+    
+    if (!error){
+        NSURLSessionDataTask *uploadTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            
+            if (error == nil){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIAlertView *alertAddedBook = [[UIAlertView alloc] initWithTitle:@"Successful!" message:@"Added the book!"  delegate:nil cancelButtonTitle:@"Okay!" otherButtonTitles:nil];
+                    
+                    [alertAddedBook show];
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                });
+                // Do something
+                
+            }
+            //Uncomment For debuging purposes to see returned values
+            //                        NSLog(@"The data is.. %@", data);
+            //                        NSLog(@"The response is.. %@", response);
+            //                        NSLog(@"The error is.. %@", error);
+            
+        }];
+        
+        [uploadTask resume];
+    }
+    
     
 }
 

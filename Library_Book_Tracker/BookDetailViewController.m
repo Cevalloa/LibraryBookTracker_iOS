@@ -42,19 +42,60 @@
         self.labelBookLatestCheckout.text = [NSString stringWithFormat:@"%@ At %@",stringFullCheckOut, [self.dictionaryBookInformation methodCheckIfKeyNil:@"lastCheckedOut"]];
     }
     
-    
     //For the URL Of The actual book
     stringBookID = [NSString stringWithFormat:@"%@", self.dictionaryBookInformation[@"url"]];
-
 
 }
 
 #pragma mark - UIAlertView Delegate Methods
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    //ButtonIndex 0 = Cancel, ButtonIndex 1 = Accept
-    if (buttonIndex == 1){
+    //For updating book:ButtonIndex 0 = Cancel, ButtonIndex 1 = Accept
+    if ([alertView.title isEqualToString:@"Preparing Checkout"] && buttonIndex == 1){
         [self methodPut:[alertView textFieldAtIndex:0].text];
+    
+    //For deleting book
+    }else if ([alertView.title isEqualToString:@"Are you sure?"] && buttonIndex == 1){
+        [self methodDelete];
     }
+}
+
+#pragma mark - Storyboard Segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"segueToEditBook"]){
+        [segue.destinationViewController setDictionaryBookInformationToEdit:sender];
+    }
+    
+}
+
+#pragma mark - IBAction Methods
+- (IBAction)barButtonItemCancel:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (IBAction)barButtonItemShare:(id)sender {
+}
+
+//Asks User For Name To Checkout Book
+- (IBAction)buttonBookCheckout:(id)sender {
+    //For iOS 8 and up please use UIAlertController
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Preparing Checkout" message:@"What is your name?"
+                                                       delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Accept", nil];
+    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+    
+    [alertView show];
+    
+}
+
+- (IBAction)buttonBookUpdate:(id)sender {
+    [self performSegueWithIdentifier:@"segueToEditBook" sender:self.dictionaryBookInformation];
+}
+
+- (IBAction)buttonBookDelete:(id)sender {
+    UIAlertView *alertViewBookDelete = [[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"Do you want to permanently delete this book?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+    
+    //Reminder the delegate triggers events based on the UIAlertViewTitle
+    [alertViewBookDelete show];
 }
 
 #pragma mark - Connectivity Methods
@@ -64,8 +105,6 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *stringFullUrlWithBookID = [NSString stringWithFormat:@"%@%@",[userDefaults objectForKey:@"stringUrlForApi"], stringBookID];
     NSURL *urlBookID = [NSURL URLWithString:stringFullUrlWithBookID];
-    
-    
     
     NSURLSession *session = [NSURLSession sharedSession];
     
@@ -88,7 +127,7 @@
                     [alertView show];
                     [self.navigationController popToRootViewControllerAnimated:YES];
                 });
-
+                
             }
             
             //Uncomment For debuging purposes to see returned values
@@ -102,35 +141,28 @@
     
 }
 
-#pragma mark - Storyboard Segue
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"segueToEditBook"]){
-        [segue.destinationViewController setDictionaryBookInformationToEdit:sender];
+-(void)methodDelete{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *stringFullUrlWithBookID = [NSString stringWithFormat:@"%@%@",[userDefaults objectForKey:@"stringUrlForApi"], stringBookID];
+    NSURL *urlBookID = [NSURL URLWithString:stringFullUrlWithBookID];
     
-    }
+    NSURLSession *session = [NSURLSession sharedSession];
     
-}
-
-#pragma mark - IBAction Methods
-- (IBAction)barButtonItemCancel:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
-
-- (IBAction)barButtonItemShare:(id)sender {
-}
-
-//Asks User For Name To Checkout Book
-- (IBAction)buttonBookCheckout:(id)sender {
-    //For iOS 8 and up please use UIAlertController
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Preparing Checkout" message:@"What is your name?"
-                                                       delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Accept", nil];
-    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [alertView show];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlBookID];
+    request.HTTPMethod = @"DELETE";
     
-}
-
-- (IBAction)buttonBookUpdate:(id)sender {
-    [self performSegueWithIdentifier:@"segueToEditBook" sender:self.dictionaryBookInformation];
+    //Deletes the book from the swag library
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        NSLog(@"The meta data response is %@", response);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        });
+    }];
+    
+    [task resume];
+    
 }
 
 @end

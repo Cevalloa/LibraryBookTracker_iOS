@@ -22,6 +22,28 @@
     self.textFieldBookTags.text = [self.dictionaryBookInformationToEdit methodCheckIfKeyNil:@"categories"];
 }
 
+#pragma mark - IBAction Methods
+- (IBAction)barButtomItemAcce:(id)sender {
+    
+    //Checks if the user has edited any part of the fields
+    BOOL booleanChecksIfInformationNew = ![self.textFieldBookTitle.text isEqualToString:[self.dictionaryBookInformationToEdit methodCheckIfKeyNil:@"title"]] ||
+                        ![self.textFieldBookAuthor.text isEqualToString:[self.dictionaryBookInformationToEdit methodCheckIfKeyNil:@"author"]] ||
+                        ![self.textFieldBookPublisher.text isEqualToString:[self.dictionaryBookInformationToEdit valueForKey:@"publisher"]] ||
+                        ![self.textFieldBookTags.text isEqualToString:[self.dictionaryBookInformationToEdit methodCheckIfKeyNil:@"categories"]];
+    
+    
+    if (booleanChecksIfInformationNew){
+        [self methodUpdate:@{@"author" : self.textFieldBookAuthor.text,
+                             @"categories": self.textFieldBookTags.text,
+                             @"title" : self.textFieldBookTitle.text,
+                             @"publisher" : self.textFieldBookPublisher.text}];
+    }else{
+        NSLog (@"false!");
+    }
+    
+
+}
+
 #pragma mark - Connectivity Methods
 -(void)methodUpdate:(NSDictionary *)dictionaryToUpdatePost{
     
@@ -35,8 +57,7 @@
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlBookID];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    //[request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    
+
     [request setHTTPMethod:@"PUT"];
     
     NSError *error = nil;
@@ -60,27 +81,5 @@
     }
     
     
-}
-
-#pragma mark - IBAction Methods
-- (IBAction)barButtomItemAcce:(id)sender {
-    
-    //Checks if the user has edited any part of the fields
-    BOOL booleanChecksIfInformationNew = ![self.textFieldBookTitle.text isEqualToString:[self.dictionaryBookInformationToEdit methodCheckIfKeyNil:@"title"]] ||
-                        ![self.textFieldBookAuthor.text isEqualToString:[self.dictionaryBookInformationToEdit methodCheckIfKeyNil:@"author"]] ||
-                        ![self.textFieldBookPublisher.text isEqualToString:[self.dictionaryBookInformationToEdit valueForKey:@"publisher"]] ||
-                        ![self.textFieldBookTags.text isEqualToString:[self.dictionaryBookInformationToEdit methodCheckIfKeyNil:@"categories"]];
-    
-    
-    if (booleanChecksIfInformationNew){
-        [self methodUpdate:@{@"author" : self.textFieldBookAuthor.text,
-                             @"categories": self.textFieldBookTags.text,
-                             @"title" : self.textFieldBookTitle.text,
-                             @"publisher" : self.textFieldBookPublisher.text}];
-    }else{
-        NSLog (@"false!");
-    }
-    
-
 }
 @end
