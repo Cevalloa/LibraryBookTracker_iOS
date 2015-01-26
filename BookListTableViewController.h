@@ -10,7 +10,9 @@
 
 @interface BookListTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
+#pragma mark - IBAction Methods
 - (IBAction)barButtonItemAddBook:(id)sender;
+- (IBAction)barButtonItemDeleteAll:(id)sender;
 
 
 @end

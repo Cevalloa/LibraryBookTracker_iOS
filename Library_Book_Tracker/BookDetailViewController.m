@@ -121,6 +121,7 @@
     if (!error){
         NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request fromData:data completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             
+            NSLog(@"%@", error);
             if (error == nil){
                 dispatch_async(dispatch_get_main_queue(), ^{
                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Successful!" message:@"Thanks for checking the book out!" delegate:nil cancelButtonTitle:@"Okay!" otherButtonTitles:nil];
@@ -156,9 +157,11 @@
         
         NSLog(@"The meta data response is %@", response);
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        });
+        if (error == nil){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            });
+        }
     }];
     
     [task resume];

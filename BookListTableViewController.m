@@ -23,13 +23,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    NSLog(@"View will appear is called");
     [self methodInitialGet];
 }
 
@@ -75,6 +68,14 @@
     [self performSegueWithIdentifier:@"segueToBookDetail" sender:self.arrayOfBookList[indexPath.row]];
 }
 
+#pragma mark - UIAlertView Delegate Methods
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    //For confirming deleting all books: ButtonIndex 0 = Cancel, 1 = Accept
+    if(buttonIndex == 1){
+        [self methodDeleteAll];
+    }
+}
+
 #pragma mark - Storyboard Segue 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
@@ -86,6 +87,11 @@
 #pragma mark - IBAction Methods
 - (IBAction)barButtonItemAddBook:(id)sender {
     [self performSegueWithIdentifier:@"segueModalAddBook" sender:nil];
+}
+
+- (IBAction)barButtonItemDeleteAll:(id)sender {
+    UIAlertView *alertViewConfirmDeleteAll = [[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"You are about to delete all of the books.. there is no going back!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"I am sure!", nil];
+    [alertViewConfirmDeleteAll show];
 }
 
 
@@ -103,16 +109,10 @@
         [userDefaults setObject:urlString forKey:@"stringUrlForApi"];
     }
     
-    //Adds books to the end of the API String
-    // NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@/books",[userDefaults objectForKey:@"stringUrlForApi"]]];
-    
     NSString *stringBookPost = [NSString stringWithFormat:@"%@/books", [userDefaults objectForKey:@"stringUrlForApi"] ];
     
     NSURL *url = [[NSURL alloc] initWithString:stringBookPost];
-    
-    
-    
-    
+
     NSURLSession *session = [NSURLSession sharedSession];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     request.HTTPMethod = @"GET";
@@ -139,5 +139,51 @@
     [task resume];
     
 }
+
+-(void)methodDeleteAll{
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *stringBookDeleteAll = [NSString stringWithFormat:@"%@/clean",[userDefaults objectForKey:@"stringUrlForApi"]];
+    NSURL *urlBookDeleteAll = [NSURL URLWithString:stringBookDeleteAll];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlBookDeleteAll];
+    [request setHTTPMethod:@"DELETE"];
+    
+    //Deletes all the books!
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            NSLog(@"The meta data response is %@", response);
+
+        if(error == nil){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+            
+                UIAlertView *alertViewBooksDeleted = [[UIAlertView alloc] initWithTitle:@"All gone!" message:@"All books have been deleted!" delegate:nil cancelButtonTitle:@"Sounds good!" otherButtonTitles: nil];
+                
+                [alertViewBooksDeleted show];
+                [self.tableView reloadData];
+            });
+        
+        }
+        
+        
+    
+    }];
+    
+    [task resume];
+    
+}
+
+
+
+
+
+
+
+
+
+
+
 
 @end

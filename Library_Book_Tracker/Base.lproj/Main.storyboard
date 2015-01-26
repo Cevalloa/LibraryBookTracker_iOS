@@ -47,6 +47,11 @@
                                 <action selector="barButtonItemAddBook:" destination="00p-5u-X8U" id="U6Z-Rj-Dev"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Delete All" id="lUT-Rx-3Vl">
+                            <connections>
+                                <action selector="barButtonItemDeleteAll:" destination="00p-5u-X8U" id="Cao-rk-JhW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="bPl-Kt-hOd" kind="show" identifier="segueToBookDetail" id="uQe-WL-1D5"/>
