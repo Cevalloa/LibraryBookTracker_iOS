@@ -23,6 +23,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
+
     [self methodInitialGet];
 }
 
@@ -120,19 +121,28 @@
     //Retrieves books from Swag Library
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
-        self.arrayOfBookList = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-        
-        //Debugging To see what JSON Api feed returns
-        NSLog(@"The returned JSON data in NSDictionary form is %@", self.arrayOfBookList);
-        NSLog(@"The meta data response is %@", response);
-        NSLog(@"total count %lu", (unsigned long)[self.arrayOfBookList count]);
-        
-        
-        //Reminder you can't call UI elements on the back threads
-        dispatch_async(dispatch_get_main_queue(), ^{
+        //If there are no errors, proceed!
+        if(error == nil){
+            NSArray *arrayToBeSorted = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
             
-            [self.tableView reloadData];
-        });
+            //Used to sort incomming books, alphabetically by title
+            NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
+            
+            //Returns alphabetically sorted array to array used for tableview
+            self.arrayOfBookList = [arrayToBeSorted sortedArrayUsingDescriptors:@[sort]];
+            
+            //Debugging To see what JSON Api feed returns
+            NSLog(@"The returned JSON data in NSDictionary form is %@", self.arrayOfBookList);
+            NSLog(@"The meta data response is %@", response);
+            NSLog(@"total count %lu", (unsigned long)[self.arrayOfBookList count]);
+            
+            
+            //Reminder you can't call UI elements on the back threads
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.tableView reloadData];
+            });
+        }
         
     }];
     

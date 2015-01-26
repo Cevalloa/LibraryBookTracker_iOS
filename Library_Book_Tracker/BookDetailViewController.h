@@ -19,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelBookTags;
 @property (weak, nonatomic) IBOutlet UILabel *labelBookLatestCheckout;
 
+@property (weak, nonatomic) IBOutlet UIView *viewForBookInformation;
+
+
 #pragma mark IBAction Methods
 - (IBAction)barButtonItemCancel:(id)sender;
 - (IBAction)barButtonItemShare:(id)sender;

@@ -9,6 +9,7 @@
 #import "BookDetailViewController.h"
 #import "EditBookViewController.h"
 #import "NSDictionary+RemovesNilValues.h"
+#import "NSObject+StringConverter.h"
 
 @interface BookDetailViewController () <UIAlertViewDelegate>{
     NSString *stringBookID;
@@ -22,20 +23,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    //methodConvertToFormatedString -> turns into formatted string
+    //methodCheckIfKey Nil -> Checks if key nil (returns string regardless)
+    //Font color is changed in storyboard
+    self.labelBookTitle.attributedText = [self methodConvertToFormattedString:[self.dictionaryBookInformation methodCheckIfKeyNil:@"title"] sizeOfString:18.0f];
     
-    self.labelBookTitle.text = [self.dictionaryBookInformation methodCheckIfKeyNil:@"title"];
+    //Rest of labels text/color/size are changable in storyboards
+    self.labelBookAuthor.text = [NSString stringWithFormat:@"By:\t%@",[self.dictionaryBookInformation methodCheckIfKeyNil:@"author"]];
     
-    self.labelBookAuthor.text = [self.dictionaryBookInformation methodCheckIfKeyNil:@"author"];
+    self.labelBookPublisher.text = [NSString stringWithFormat:@"Publisher:\t%@",[self.dictionaryBookInformation methodCheckIfKeyNil:@"publisher"]];
     
-    self.labelBookPublisher.text = [self.dictionaryBookInformation methodCheckIfKeyNil:@"publisher"];
-    
-    self.labelBookTags.text = [self.dictionaryBookInformation methodCheckIfKeyNil:@"categories"];
+    self.labelBookTags.text = [NSString stringWithFormat:@"Tags:\t%@", [self.dictionaryBookInformation methodCheckIfKeyNil:@"categories"]];
     
     //Checks if lastCheckedOutBy empty (if true, tells user there is nothing there)
-    NSString *stringFullCheckOut = [NSString stringWithFormat:@"Last Checked Out:%@",[self.dictionaryBookInformation methodCheckIfKeyNil:@"lastCheckedOutBy"]];
+    NSString *stringFullCheckOut = [NSString stringWithFormat:@"Checked Out: %@",[self.dictionaryBookInformation methodCheckIfKeyNil:@"lastCheckedOutBy"]];
     
     //Reminder: methodCheckIfKeyNil returns -No [DictionaryKey] if value == null
-    if ([@"Last Checked Out:-No lastCheckedOutBy" isEqualToString:stringFullCheckOut]){
+    if ([@"Checked Out: -No lastCheckedOutBy" isEqualToString:stringFullCheckOut]){
         
         self.labelBookLatestCheckout.text = @"No Checkouts Yet";
     }else{
@@ -44,6 +49,10 @@
     
     //For the URL Of The actual book
     stringBookID = [NSString stringWithFormat:@"%@", self.dictionaryBookInformation[@"url"]];
+    
+    //Gives the border size & color around the book information
+    self.viewForBookInformation.layer.borderColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1.0].CGColor;
+    self.viewForBookInformation.layer.borderWidth = 2.0f;
 
 }
 
