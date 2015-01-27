@@ -12,10 +12,11 @@
 @implementation EditBookViewController
 
 #pragma mark - View Controller Lifecycle Methods
+//Loads the textfield with the current book's values
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-    //methodCheckIfKeyNil is from "NSDictionary+RemovesNilValues"
+    //methodCheckIfKeyNil returns a string if the value is nil
     self.textFieldBookTitle.text = [self.dictionaryBookInformationToEdit methodCheckIfKeyNil:@"title"];
     self.textFieldBookAuthor.text = [self.dictionaryBookInformationToEdit methodCheckIfKeyNil:@"author"];
     self.textFieldBookPublisher.text = [self.dictionaryBookInformationToEdit methodCheckIfKeyNil:@"publisher"];
@@ -23,6 +24,7 @@
 }
 
 #pragma mark - IBAction Methods
+//If the user hasn't edited anything, the user is asked to edit something before upload
 - (IBAction)barButtomItemAcce:(id)sender {
     
     //Checks if the user has edited any part of the fields
@@ -38,13 +40,15 @@
                              @"title" : self.textFieldBookTitle.text,
                              @"publisher" : self.textFieldBookPublisher.text}];
     }else{
-        NSLog (@"false!");
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Woops!" message:@"Please edit a field before pressing submit" delegate:nil cancelButtonTitle:@"Okay!" otherButtonTitles:nil];
+        [alertView show];
     }
     
 
 }
 
-#pragma mark - Connectivity Methods
+#pragma mark - API Connectivity Methods
+//Updates the book on the database
 -(void)methodUpdate:(NSDictionary *)dictionaryToUpdatePost{
     
     //Obtains APi string for which book to manipulate
@@ -69,7 +73,7 @@
         NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request fromData:data completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if (error == nil){
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    UIAlertView *alertViewUpdatedBook = [[UIAlertView alloc] initWithTitle:@"Successful!" message:@"Added The Book!" delegate:nil cancelButtonTitle:@"Okay!" otherButtonTitles:nil];
+                    UIAlertView *alertViewUpdatedBook = [[UIAlertView alloc] initWithTitle:@"Successful!" message:@"Book has been updated!" delegate:nil cancelButtonTitle:@"Okay!" otherButtonTitles:nil];
                     
                     [alertViewUpdatedBook show];
                     [self.navigationController popToRootViewControllerAnimated:YES];

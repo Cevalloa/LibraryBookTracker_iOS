@@ -19,6 +19,7 @@
 		CCE3E0F81A6EE01800D595F6 /* NSObject+StringConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0F71A6EE01800D595F6 /* NSObject+StringConverter.m */; };
 		CCE3E1061A73481F00D595F6 /* EditBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E1051A73481F00D595F6 /* EditBookViewController.m */; };
 		CCE3E1091A74975A00D595F6 /* NSDictionary+RemovesNilValues.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E1081A74975A00D595F6 /* NSDictionary+RemovesNilValues.m */; };
+		CCE3E10B1A77211100D595F6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE3E10A1A77211100D595F6 /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		CCE3E1051A73481F00D595F6 /* EditBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditBookViewController.m; sourceTree = "<group>"; };
 		CCE3E1071A74975A00D595F6 /* NSDictionary+RemovesNilValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+RemovesNilValues.h"; sourceTree = "<group>"; };
 		CCE3E1081A74975A00D595F6 /* NSDictionary+RemovesNilValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+RemovesNilValues.m"; sourceTree = "<group>"; };
+		CCE3E10A1A77211100D595F6 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCE3E10B1A77211100D595F6 /* Social.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +117,7 @@
 		CCE3E0C41A6EADC200D595F6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CCE3E10A1A77211100D595F6 /* Social.framework */,
 				CCE3E0C51A6EADC200D595F6 /* Info.plist */,
 				CCE3E0C61A6EADC200D595F6 /* main.m */,
 			);

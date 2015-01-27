@@ -40,7 +40,6 @@
 }
 
 #pragma mark - Table view delegate
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
 
@@ -59,12 +58,9 @@
         //NSLog(@"Within cell for row the count is %lu", (unsigned long)[self.arrayOfBookList count]);
 
     return cell;
-    
-    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     //Passes the dictionary at the index dependent on the selected row
     [self performSegueWithIdentifier:@"segueToBookDetail" sender:self.arrayOfBookList[indexPath.row]];
 }
@@ -90,6 +86,7 @@
     [self performSegueWithIdentifier:@"segueModalAddBook" sender:nil];
 }
 
+//Asks for confirmation if user wants to delete all books
 - (IBAction)barButtonItemDeleteAll:(id)sender {
     UIAlertView *alertViewConfirmDeleteAll = [[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"You are about to delete all of the books.. there is no going back!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"I am sure!", nil];
     [alertViewConfirmDeleteAll show];
@@ -97,6 +94,7 @@
 
 
 #pragma mark - API Connectivity Methods
+//Gets all books to fill the tableview
 -(void)methodInitialGet {
     
     //Change the URL string here to change throughout the app
@@ -132,9 +130,9 @@
             self.arrayOfBookList = [arrayToBeSorted sortedArrayUsingDescriptors:@[sort]];
             
             //Debugging To see what JSON Api feed returns
-            NSLog(@"The returned JSON data in NSDictionary form is %@", self.arrayOfBookList);
-            NSLog(@"The meta data response is %@", response);
-            NSLog(@"total count %lu", (unsigned long)[self.arrayOfBookList count]);
+    //            NSLog(@"The returned JSON data in NSDictionary form is %@", self.arrayOfBookList);
+    //            NSLog(@"The meta data response is %@", response);
+    //            NSLog(@"total count %lu", (unsigned long)[self.arrayOfBookList count]);
             
             
             //Reminder you can't call UI elements on the back threads
@@ -150,6 +148,7 @@
     
 }
 
+//Called to delete all the books in the API
 -(void)methodDeleteAll{
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -184,15 +183,6 @@
     [task resume];
     
 }
-
-
-
-
-
-
-
-
-
 
 
 

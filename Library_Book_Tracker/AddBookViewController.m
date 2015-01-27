@@ -35,11 +35,13 @@
 }
 
 #pragma mark - UITextField Delegate Methods
+//When the textfield keyboard's return button is pressed, the keyboard is removed
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return false;
 }
 
+//If the keyboard appears on the "Categories" textfield, move the screen to make space
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
 
     //Fixes issue with categories not appearing on 3.5" devices
@@ -54,6 +56,7 @@
     }
 }
 
+//Moves the keyboard back up if the keyboard is on the "categories" textfield
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     
     //Fixes issue with categories not appearing on 3.5" devices
@@ -73,6 +76,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+//Submits a new book to the database, but only if the title & author field aren't empty
 - (IBAction)buttonBookSubmit:(id)sender {
     
     //Makes sure title and author aren't empty before proceeding
@@ -95,7 +99,8 @@
 }
 
 
-#pragma mark - Connectivity Methods
+#pragma mark - API Connectivity Methods
+//Adds a new book to the database
 -(void)methodPost:(NSDictionary *)dictionaryToPost{
     //Obtains API string to POST a new book (key created in Screen 1)
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

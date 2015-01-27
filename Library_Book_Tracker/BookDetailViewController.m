@@ -6,13 +6,18 @@
 //  Copyright (c) 2015 AlexCevallos. All rights reserved.
 //
 
+#import <Social/Social.h>
 #import "BookDetailViewController.h"
 #import "EditBookViewController.h"
 #import "NSDictionary+RemovesNilValues.h"
 #import "NSObject+StringConverter.h"
 
 @interface BookDetailViewController () <UIAlertViewDelegate>{
+    //Used to store the URL of the current book
     NSString *stringBookID;
+    
+    //Used to store the entire book's information in one string
+    NSString *stringBookAllInformation;
 }
 
 @end
@@ -20,6 +25,7 @@
 @implementation BookDetailViewController
 
 #pragma mark - View Controller Lifecycle Methods
+//Sets labels, sets book URL, and sets all book information in one string
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -50,6 +56,14 @@
     //For the URL Of The actual book
     stringBookID = [NSString stringWithFormat:@"%@", self.dictionaryBookInformation[@"url"]];
     
+    //Used to store all book information to one string (to send to social media)
+    stringBookAllInformation  = [NSString stringWithFormat:@"Check this swag library book!\n\n%@\n%@\n%@\n%@\n%@",
+                                 self.labelBookTitle.attributedText.string,
+                                 self.labelBookAuthor.text,
+                                 self.labelBookPublisher.text,
+                                 self.labelBookTags.text,
+                                 self.labelBookLatestCheckout.text];
+    
     //Gives the border size & color around the book information
     self.viewForBookInformation.layer.borderColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1.0].CGColor;
     self.viewForBookInformation.layer.borderWidth = 2.0f;
@@ -58,13 +72,22 @@
 
 #pragma mark - UIAlertView Delegate Methods
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    //For updating book:ButtonIndex 0 = Cancel, ButtonIndex 1 = Accept
+    //For updating book:
+    //ButtonIndex 0 = Cancel, ButtonIndex 1 = Accept
     if ([alertView.title isEqualToString:@"Preparing Checkout"] && buttonIndex == 1){
         [self methodPut:[alertView textFieldAtIndex:0].text];
     
-    //For deleting book
+    //To run code deleting current book
     }else if ([alertView.title isEqualToString:@"Are you sure?"] && buttonIndex == 1){
         [self methodDelete];
+        
+    //To send book information to twitter
+    }else if([alertView.title isEqualToString:@"Share this book?"] && buttonIndex == 1){
+        [self methodSendToTwitter];
+        
+    //To send book information to facebook
+    }else if([alertView.title isEqualToString:@"Share this book?"] && buttonIndex == 2){
+        [self methodSendToFacebook];
     }
 }
 
@@ -77,25 +100,30 @@
 }
 
 #pragma mark - IBAction Methods
+//Removes current detail view
 - (IBAction)barButtonItemCancel:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
+//Asks user which social media to share current book on
 - (IBAction)barButtonItemShare:(id)sender {
+    UIAlertView *alertViewSendToSocialMedia = [[UIAlertView alloc] initWithTitle:@"Share this book?" message:@"Which social media platform would you like to share this book on?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Twitter", @"Facebook", nil];
+    [alertViewSendToSocialMedia show];
+    
 }
 
 //Asks User For Name To Checkout Book
 - (IBAction)buttonBookCheckout:(id)sender {
     //For iOS 8 and up please use UIAlertController
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Preparing Checkout" message:@"What is your name?"
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Preparing Checkout"
+                                                        message:@"What is your name?"
                                                        delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Accept", nil];
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-    
-    
     [alertView show];
     
 }
 
+//Activates button to update person's checkout
 - (IBAction)buttonBookUpdate:(id)sender {
     [self performSegueWithIdentifier:@"segueToEditBook" sender:self.dictionaryBookInformation];
 }
@@ -107,7 +135,27 @@
     [alertViewBookDelete show];
 }
 
-#pragma mark - Connectivity Methods
+#pragma mark - Social Media Connectivity Methods
+-(void)methodSendToTwitter{
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]){
+        SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        [tweetSheet setInitialText:stringBookAllInformation];
+        [self presentViewController:tweetSheet animated:YES completion:nil];
+    }
+}
+
+-(void)methodSendToFacebook{
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
+        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+        [controller setInitialText:stringBookAllInformation];
+        [self presentViewController:controller animated:YES completion:Nil];
+    }
+}
+
+#pragma mark - API Connectivity Methods
+//Updates book's latest checkout
 -(void)methodPut:(NSString *)stringNameOfPersonCheckingOut{
     
     //Obtains API string for which Book to manipulate
@@ -151,6 +199,7 @@
     
 }
 
+//Deletes current book
 -(void)methodDelete{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *stringFullUrlWithBookID = [NSString stringWithFormat:@"%@%@",[userDefaults objectForKey:@"stringUrlForApi"], stringBookID];
@@ -176,5 +225,6 @@
     [task resume];
     
 }
+
 
 @end
