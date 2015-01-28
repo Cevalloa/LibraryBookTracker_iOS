@@ -171,7 +171,7 @@
                 UIAlertView *alertViewBooksDeleted = [[UIAlertView alloc] initWithTitle:@"All gone!" message:@"All books have been deleted!" delegate:nil cancelButtonTitle:@"Sounds good!" otherButtonTitles: nil];
                 
                 [alertViewBooksDeleted show];
-                [self.tableView reloadData];
+                [self methodInitialGet];
             });
         
         }
