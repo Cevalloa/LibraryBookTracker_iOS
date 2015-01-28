@@ -2,14 +2,17 @@
 The SWAG committee is looking for a way to track who has which book from our library. The goal of this exercise is to create a simple app that connects to a web server and performs a GET, a POST, and a PUT. (Also DELETE)
 
 ## Organization 
-1) Commenting System
-   1.a Variable, method names
-   1.b Pragma mark Organization
-2) Screens
-  1.a Screen 1
-  1.b Screen 2
-  1.c Screen 3
-  1.d Screen 4
+
+1) Commenting System<br>
+   1.a Variable, method names <br>
+   1.b Pragma mark Organization<br>
+   
+2) Screens<br>
+   1.a Screen 1<br>
+   1.b Screen 2<br>
+   1.c Screen 3<br> 
+   1.d Screen 4<br>
+  
 3) F.A.Q
 
 ### 1 - Commenting System
@@ -31,13 +34,13 @@ A method that uses HTTP put to "put" a name
 
 ## 1.b Pragma mark organization
 All classes use the following pragma division to organize methods:
-#pragma mark - View Controller Lifecycle Methods
-#pragma mark - Data source Methods
-#pragma mark - Delegate Methods
-#pragma mark - Storyboard Segue Methods
-#pragma mark - IBAction Methods
-#pragma mark - Social Media Connectivity Methods
-#pragma mark - API Connectivity Methods
+pragma mark - View Controller Lifecycle Methods
+pragma mark - Data source Methods
+pragma mark - Delegate Methods
+pragma mark - Storyboard Segue Methods
+pragma mark - IBAction Methods
+pragma mark - Social Media Connectivity Methods
+pragma mark - API Connectivity Methods
 
 Not all classes may have all pragma marks, but they are all organized in this order
 
