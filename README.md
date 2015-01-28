@@ -3,15 +3,15 @@ The SWAG committee is looking for a way to track who has which book from our lib
 
 ## Organization 
 
-1) Commenting System<br>
+<br>1)</br> Commenting System<br>
    <b>1.a</b> Variable, method names <br>
-   1.b Pragma mark Organization<br>
+   <br>1.b</br> Pragma mark Organization<br>
    
-2) Screens<br>
-   1.a Screen 1<br>
-   1.b Screen 2<br>
-   1.c Screen 3<br> 
-   1.d Screen 4<br>
+<br>2)</br> Screens<br>
+   <br>1.a</br> Screen 1<br>
+   <br>1.b</br> Screen 2<br>
+   <br>1.c</br> Screen 3<br> 
+   <br>1.d</br> Screen 4<br>
   
 3) F.A.Q
 
