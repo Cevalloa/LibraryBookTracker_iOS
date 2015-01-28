@@ -7,7 +7,7 @@
 //
 
 #import "BookListTableViewController.h"
-#import "NSObject+StringConverter.h"
+#import "UIViewController+StringConverter.h"
 #import "NSDictionary+RemovesNilValues.h"
 #import "BookDetailViewController.h"
 
@@ -103,7 +103,7 @@
     
     //Set up universal URL for API Connection (if it does not match the stringUrl)
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if ([userDefaults stringForKey:@"stringUrlForApi"] != urlString) {
+    if ([[userDefaults stringForKey:@"stringUrlForApi"] isEqualToString:urlString]) {
         NSLog(@"urlForApi is empty");
         [userDefaults setObject:urlString forKey:@"stringUrlForApi"];
     }
@@ -130,9 +130,9 @@
             self.arrayOfBookList = [arrayToBeSorted sortedArrayUsingDescriptors:@[sort]];
             
             //Debugging To see what JSON Api feed returns
-    //            NSLog(@"The returned JSON data in NSDictionary form is %@", self.arrayOfBookList);
-    //            NSLog(@"The meta data response is %@", response);
-    //            NSLog(@"total count %lu", (unsigned long)[self.arrayOfBookList count]);
+                NSLog(@"The returned JSON data in NSDictionary form is %@", self.arrayOfBookList);
+                NSLog(@"The meta data response is %@", response);
+                NSLog(@"total count %lu", (unsigned long)[self.arrayOfBookList count]);
             
             
             //Reminder you can't call UI elements on the back threads

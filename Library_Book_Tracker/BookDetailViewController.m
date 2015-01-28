@@ -10,7 +10,7 @@
 #import "BookDetailViewController.h"
 #import "EditBookViewController.h"
 #import "NSDictionary+RemovesNilValues.h"
-#import "NSObject+StringConverter.h"
+#import "UIViewController+StringConverter.h"
 
 @interface BookDetailViewController () <UIAlertViewDelegate>{
     //Used to store the URL of the current book
@@ -50,7 +50,9 @@
         
         self.labelBookLatestCheckout.text = @"No Checkouts Yet";
     }else{
-        self.labelBookLatestCheckout.text = [NSString stringWithFormat:@"%@ At %@",stringFullCheckOut, [self.dictionaryBookInformation methodCheckIfKeyNil:@"lastCheckedOut"]];
+        
+        //Don't need methodCheckIfKeyNil, because already checked if lastCheckedOut was nil
+        self.labelBookLatestCheckout.text = [NSString stringWithFormat:@"%@ At %@",stringFullCheckOut, [self methodFormatsDateString:self.dictionaryBookInformation[@"lastCheckedOut"]]];
     }
     
     //For the URL Of The actual book

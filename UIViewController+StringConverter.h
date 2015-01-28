@@ -9,8 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface NSObject (StringConverter)
+@interface UIViewController (StringConverter)
 
+//Converts the string date into 
+-(NSString *)methodFormatsDateString:(NSString *)stringToFormat;
+
+
+//Returns the value if it is not nil. If there is no value, returns a string indicating so
 -(NSAttributedString *)methodConvertToFormattedString:(NSString *)stringName sizeOfString:(float)floatSizeOfText;
 
 

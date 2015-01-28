@@ -16,7 +16,7 @@
 		CCE3E0EC1A6EB06000D595F6 /* BookListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0EB1A6EB06000D595F6 /* BookListTableViewController.m */; };
 		CCE3E0EF1A6EB5CF00D595F6 /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0EE1A6EB5CF00D595F6 /* BookDetailViewController.m */; };
 		CCE3E0F21A6EB5F100D595F6 /* AddBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0F11A6EB5F100D595F6 /* AddBookViewController.m */; };
-		CCE3E0F81A6EE01800D595F6 /* NSObject+StringConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0F71A6EE01800D595F6 /* NSObject+StringConverter.m */; };
+		CCE3E0F81A6EE01800D595F6 /* UIViewControllert+StringConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0F71A6EE01800D595F6 /* UIViewControllert+StringConverter.m */; };
 		CCE3E1061A73481F00D595F6 /* EditBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E1051A73481F00D595F6 /* EditBookViewController.m */; };
 		CCE3E1091A74975A00D595F6 /* NSDictionary+RemovesNilValues.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E1081A74975A00D595F6 /* NSDictionary+RemovesNilValues.m */; };
 		CCE3E10B1A77211100D595F6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE3E10A1A77211100D595F6 /* Social.framework */; };
@@ -50,8 +50,8 @@
 		CCE3E0EE1A6EB5CF00D595F6 /* BookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
 		CCE3E0F01A6EB5F100D595F6 /* AddBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBookViewController.h; sourceTree = "<group>"; };
 		CCE3E0F11A6EB5F100D595F6 /* AddBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBookViewController.m; sourceTree = "<group>"; };
-		CCE3E0F61A6EE01800D595F6 /* NSObject+StringConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+StringConverter.h"; sourceTree = "<group>"; };
-		CCE3E0F71A6EE01800D595F6 /* NSObject+StringConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+StringConverter.m"; sourceTree = "<group>"; };
+		CCE3E0F61A6EE01800D595F6 /* UIViewController+StringConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+StringConverter.h"; sourceTree = "<group>"; };
+		CCE3E0F71A6EE01800D595F6 /* UIViewControllert+StringConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewControllert+StringConverter.m"; sourceTree = "<group>"; };
 		CCE3E1041A73481F00D595F6 /* EditBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditBookViewController.h; sourceTree = "<group>"; };
 		CCE3E1051A73481F00D595F6 /* EditBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditBookViewController.m; sourceTree = "<group>"; };
 		CCE3E1071A74975A00D595F6 /* NSDictionary+RemovesNilValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+RemovesNilValues.h"; sourceTree = "<group>"; };
@@ -171,8 +171,8 @@
 		CCE3E0FC1A6EEB3900D595F6 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				CCE3E0F61A6EE01800D595F6 /* NSObject+StringConverter.h */,
-				CCE3E0F71A6EE01800D595F6 /* NSObject+StringConverter.m */,
+				CCE3E0F61A6EE01800D595F6 /* UIViewController+StringConverter.h */,
+				CCE3E0F71A6EE01800D595F6 /* UIViewControllert+StringConverter.m */,
 				CCE3E1071A74975A00D595F6 /* NSDictionary+RemovesNilValues.h */,
 				CCE3E1081A74975A00D595F6 /* NSDictionary+RemovesNilValues.m */,
 			);
@@ -290,7 +290,7 @@
 			files = (
 				CCE3E1091A74975A00D595F6 /* NSDictionary+RemovesNilValues.m in Sources */,
 				CCE3E0EC1A6EB06000D595F6 /* BookListTableViewController.m in Sources */,
-				CCE3E0F81A6EE01800D595F6 /* NSObject+StringConverter.m in Sources */,
+				CCE3E0F81A6EE01800D595F6 /* UIViewControllert+StringConverter.m in Sources */,
 				CCE3E0CA1A6EADC200D595F6 /* AppDelegate.m in Sources */,
 				CCE3E0EF1A6EB5CF00D595F6 /* BookDetailViewController.m in Sources */,
 				CCE3E0F21A6EB5F100D595F6 /* AddBookViewController.m in Sources */,
