@@ -8,6 +8,8 @@
 
 #import "EditBookViewController.h"
 #import "NSDictionary+RemovesNilValues.h"
+#import "UIViewController+StringConverter.h"
+#import "UIViewController+textFieldDelegates.h"
 
 @implementation EditBookViewController
 
@@ -21,6 +23,14 @@
     self.textFieldBookAuthor.text = [self.dictionaryBookInformationToEdit methodCheckIfKeyNil:@"author"];
     self.textFieldBookPublisher.text = [self.dictionaryBookInformationToEdit methodCheckIfKeyNil:@"publisher"];
     self.textFieldBookTags.text = [self.dictionaryBookInformationToEdit methodCheckIfKeyNil:@"categories"];
+    
+    //Goes over every subview, sets all UITextFields to "self" as the delegate
+    for (UIView *sub in self.view.subviews){
+        if ([sub isKindOfClass:[UITextField class]]){
+            //Casting to use UITextField methods
+            ((UITextField *)sub).delegate = self;
+        }
+    }
 }
 
 #pragma mark - IBAction Methods

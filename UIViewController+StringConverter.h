@@ -18,6 +18,5 @@
 //Returns the value if it is not nil. If there is no value, returns a string indicating so
 -(NSAttributedString *)methodConvertToFormattedString:(NSString *)stringName sizeOfString:(float)floatSizeOfText;
 
-
-
 @end
+

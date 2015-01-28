@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC26A4161A78C0DD004729BA /* UIViewController+textFieldDelegates.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26A4151A78C0DD004729BA /* UIViewController+textFieldDelegates.m */; };
 		CCE3E0C71A6EADC200D595F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0C61A6EADC200D595F6 /* main.m */; };
 		CCE3E0CA1A6EADC200D595F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE3E0C91A6EADC200D595F6 /* AppDelegate.m */; };
 		CCE3E0D01A6EADC300D595F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCE3E0CE1A6EADC300D595F6 /* Main.storyboard */; };
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC26A4141A78C0DD004729BA /* UIViewController+textFieldDelegates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+textFieldDelegates.h"; sourceTree = "<group>"; };
+		CC26A4151A78C0DD004729BA /* UIViewController+textFieldDelegates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+textFieldDelegates.m"; sourceTree = "<group>"; };
 		CCE3E0C11A6EADC200D595F6 /* Library_Book_Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Library_Book_Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE3E0C51A6EADC200D595F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCE3E0C61A6EADC200D595F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -81,6 +84,8 @@
 		CCE3E0B81A6EADC100D595F6 = {
 			isa = PBXGroup;
 			children = (
+				CC26A4141A78C0DD004729BA /* UIViewController+textFieldDelegates.h */,
+				CC26A4151A78C0DD004729BA /* UIViewController+textFieldDelegates.m */,
 				CCE3E0C31A6EADC200D595F6 /* Library_Book_Tracker */,
 				CCE3E0FC1A6EEB3900D595F6 /* Categories */,
 				CCE3E0DD1A6EADC500D595F6 /* Library_Book_TrackerTests */,
@@ -295,6 +300,7 @@
 				CCE3E0EF1A6EB5CF00D595F6 /* BookDetailViewController.m in Sources */,
 				CCE3E0F21A6EB5F100D595F6 /* AddBookViewController.m in Sources */,
 				CCE3E0C71A6EADC200D595F6 /* main.m in Sources */,
+				CC26A4161A78C0DD004729BA /* UIViewController+textFieldDelegates.m in Sources */,
 				CCE3E1061A73481F00D595F6 /* EditBookViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +494,7 @@
 				CCE3E0E61A6EADC600D595F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CCE3E0E71A6EADC600D595F6 /* Build configuration list for PBXNativeTarget "Library_Book_TrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +503,7 @@
 				CCE3E0E91A6EADC600D595F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
