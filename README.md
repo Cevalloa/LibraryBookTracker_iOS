@@ -33,14 +33,14 @@ A method that uses HTTP put to "put" a name
 -(void)methodPut:(NSString *)stringNameOfPersonChecking Out
 
 ### 1.b Pragma mark organization
-All classes use the following pragma division to organize methods:
-pragma mark - View Controller Lifecycle Methods
-pragma mark - Data source Methods
-pragma mark - Delegate Methods
-pragma mark - Storyboard Segue Methods
-pragma mark - IBAction Methods
-pragma mark - Social Media Connectivity Methods
-pragma mark - API Connectivity Methods
+All classes use the following pragma division to organize methods:<br>
+pragma mark - View Controller Lifecycle Methods<br>
+pragma mark - Data source Methods<br>
+pragma mark - Delegate Methods<br>
+pragma mark - Storyboard Segue Methods<br>
+pragma mark - IBAction Methods<br>
+pragma mark - Social Media Connectivity Methods<br>
+pragma mark - API Connectivity Methods<br>
 
 Not all classes may have all pragma marks, but they are all organized in this order
 
