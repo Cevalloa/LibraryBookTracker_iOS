@@ -103,7 +103,7 @@
     
     //Set up universal URL for API Connection (if it does not match the stringUrl)
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if (![[userDefaults stringForKey:@"stringUrlForApi"] isEqualToString:urlString]) {
+    if (![[userDefaults stringForKey:@"stringUrlForApi"] isEqualToString:urlString]) { //Logic had failed here
         NSLog(@"urlForApi is empty");
         [userDefaults setObject:urlString forKey:@"stringUrlForApi"];
         [userDefaults synchronize];
