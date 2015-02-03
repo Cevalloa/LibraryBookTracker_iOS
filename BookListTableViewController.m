@@ -103,12 +103,13 @@
     
     //Set up universal URL for API Connection (if it does not match the stringUrl)
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if ([[userDefaults stringForKey:@"stringUrlForApi"] isEqualToString:urlString]) {
+    if (![[userDefaults stringForKey:@"stringUrlForApi"] isEqualToString:urlString]) {
         NSLog(@"urlForApi is empty");
         [userDefaults setObject:urlString forKey:@"stringUrlForApi"];
+        [userDefaults synchronize];
     }
     
-    NSString *stringBookPost = [NSString stringWithFormat:@"%@/books", [userDefaults objectForKey:@"stringUrlForApi"] ];
+    NSString *stringBookPost = [NSString stringWithFormat:@"%@/books", [userDefaults stringForKey:@"stringUrlForApi"] ];
     
     NSURL *url = [[NSURL alloc] initWithString:stringBookPost];
 
@@ -118,6 +119,9 @@
     
     //Retrieves books from Swag Library
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        NSLog(@"%@", error);
+        
         
         //If there are no errors, proceed!
         if(error == nil){
