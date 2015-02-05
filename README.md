@@ -1,17 +1,19 @@
 # LibraryBookTracker_iOS
 The SWAG committee is looking for a way to track who has which book from our library. The goal of this exercise is to create a simple app that connects to a web server and performs a GET, a POST, and a PUT. (Also DELETE)
 
+- Uses HTTP requests to work with a REST API
+- Uses GET, POST, PUT, DELETE
+- Connects to an external web server (JSON feed) to keep track of library books
+- Posts to Facebook & Twitter
+- Commits using GIT
+
+-Looks natural on iPhone screen sizes (from iPhone 4 to iPhone 6 plus)
+
 ## Organization 
 
 <br>1)</br> Commenting System<br>
-   <b>1.a</b> Variable, method names <br>
-   <br>1.b</br> Pragma mark Organization<br>
-   
+
 <br>2)</br> Screens<br>
-   <br>1.a</br> Screen 1<br>
-   <br>1.b</br> Screen 2<br>
-   <br>1.c</br> Screen 3<br> 
-   <br>1.d</br> Screen 4<br>
   
 3) F.A.Q
 
